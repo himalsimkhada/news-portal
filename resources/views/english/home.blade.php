@@ -1,6 +1,6 @@
 @extends('english.layouts.app')
 
-@section('title', 'Home Page')
+@section('title', 'News Portal - Unicode')
 
 @section('content')
     <div class="container">

@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                
+
                                 </ul>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                     गृहपृष्ठ
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="index.php">Page 1</a> 
+                                        <a class="dropdown-item" href="index.php">Page 1</a>
                                         <a class="dropdown-item" href="indexsec.php">Page 2</a>
                                         <a class="dropdown-item" href="indexenglish.php">English 1</a>
                                         <a class="dropdown-item" href="indexenglishtwo.php">English 2</a>
