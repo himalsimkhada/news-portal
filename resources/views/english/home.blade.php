@@ -227,7 +227,8 @@
                             alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
                         <h2 class="innerCardMainHeading"> <a href="detailsenglish.php"> Here's how to improve family
                                 relationships </a> </h2>
-                        <p class="newsText"> Place pictures of your family's happiness in the northeastern part of your
+                        <p class="newsText"> Place pictures of your family's happiness in the northeastern part of
+                            your
                             family to bring happiness into your life. If the relationship between the family members of the
                             household in any way ... </p>
                     </div>
@@ -279,7 +280,8 @@
                         <img src="img/1202995435.jpg.0.webp" alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
                         <h2 class="innerCardMainHeading"> <a href="detailsenglish.php"> Here's how to improve family
                                 relationships </a> </h2>
-                        <p class="newsText"> Place pictures of your family's happiness in the northeastern part of your
+                        <p class="newsText"> Place pictures of your family's happiness in the northeastern part of
+                            your
                             family to bring happiness into your life. If the relationship between the family members of the
                             household in any way ... </p>
                     </div>
