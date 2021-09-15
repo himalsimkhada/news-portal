@@ -2,7 +2,7 @@
 
 <?php include ('layouts/headerone.php'); ?>
 
-   
+
     <div class="container">
 
         <div class="white gapping"><!--news 1 start-->
@@ -13,13 +13,13 @@
 
         <div class="white gapping"><!--news 2 start-->
                 <h1 class="mainNewsHeading">
-                    <a href="details.php"">
+                    <a href="details.php">
                         लमजुङमा कोरोनाबाट एक वृद्धको मृत्यु
                     </a>
                 </h1>
                 <img src="img/images.jpg" alt="mainNewsImage" class="img-fluid mainNewsImage">
         </div><!--news 2 endds-->
-        
+
         <div class="white gapping"><!--news 3 start-->
                 <h1 class="mainNewsHeading">
                     <a href="details.php">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div><!--samachra ends-->
 
@@ -397,7 +397,7 @@
             </div><!--left side ends-->
 
         </div><!--ad and news ends-->
-        
+
     </div><!--container ends-->
 
     <div class="newsLetterSection">
@@ -417,12 +417,13 @@
                             <button>Subscribe</button>
                         </div>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
     </div>
 
-    
+
     <?php include ('layouts/footer.php'); ?>
+
