@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 headerLogoTwo">
                     <a href="indexenglish.php">
-                        <img src="img/logopng.png" alt="logo" class="img-fluid">
+                        <img src="{{ asset('img/logopng.png') }}" alt="logo" class="img-fluid">
                     </a>
                 </div>
             </div>

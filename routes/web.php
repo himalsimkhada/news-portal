@@ -23,3 +23,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('english/home', [HomeController::class, 'englishIndex'])->name('english.index');
+Route::get('nepali/home', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
