@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Pratiksh\Adminetic\Traits\AdmineticUser;
 
-class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable;
+class User extends Authenticatable {
+    use HasApiTokens, HasFactory, Notifiable, AdmineticUser;
 
     /**
      * The attributes that are mass assignable.

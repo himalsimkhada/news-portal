@@ -22,7 +22,7 @@
                     An old man died from corona in Lamjung
                 </a>
             </h1>
-            <img src="img/images.jpg" alt="mainNewsImage" class="img-fluid mainNewsImage">
+            <img src="{{ asset('img/images.jpg') }}" alt="mainNewsImage" class="img-fluid mainNewsImage">
         </div>
         <!--news 2 endds-->
 
