@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Contracts\CategoryRepositoryInterface;
+use App\Contracts\PostRepositoryInterface;
+use App\Repositories\CategoryRepository;
+use App\Repositories\PostRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -28,8 +32,6 @@ class AdminServiceProvider extends ServiceProvider {
 
     // Repository Interface Binding
     protected function repos() {
-        // $this->app->bind(AnnouncementRepositoryInterface::class, AnnouncementRepository::class);
-
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
         $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
     }
