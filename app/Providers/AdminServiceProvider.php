@@ -5,15 +5,13 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
-class AdminServiceProvider extends ServiceProvider
-{
+class AdminServiceProvider extends ServiceProvider {
     /**
      * Register services.
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         /* Repository Interface Binding */
         $this->repos();
     }
@@ -23,15 +21,16 @@ class AdminServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         // Registering Blade Directives
         Paginator::useBootstrap();
     }
 
     // Repository Interface Binding
-    protected function repos()
-    {
+    protected function repos() {
         // $this->app->bind(AnnouncementRepositoryInterface::class, AnnouncementRepository::class);
+
+        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(PostRepositoryInterface::class, PostRepository::class);
     }
 }

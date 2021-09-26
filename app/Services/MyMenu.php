@@ -5,13 +5,50 @@ namespace App\Services;
 use Pratiksh\Adminetic\Traits\SidebarHelper;
 use Pratiksh\Adminetic\Contracts\SidebarInterface;
 
-class MyMenu implements SidebarInterface
-{
+class MyMenu implements SidebarInterface {
     use SidebarHelper;
 
-    public function myMenu(): array
-    {
+    public function myMenu(): array {
         return [
+            [
+                'type' => 'breaker',
+                'name' => 'Dependencies',
+                'description' => 'Dependency Modules',
+            ],
+            [
+                'type' => 'menu',
+                'name' => 'Post',
+                'icon' => 'fa fa-pencil-square-o',
+                'is_active' => request()->routeIs('post*') ? 'active' : '',
+                'conditions' => [
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('view-any', App\Models\Admin\Post::class),
+                    ],
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('create', App\Models\Admin\Post::class),
+                    ],
+                ],
+                'children' => $this->indexCreateChildren('post', App\Models\Admin\Post::class)
+            ],
+            [
+                'type' => 'menu',
+                'name' => 'Category',
+                'icon' => 'fa fa-code-fork',
+                'is_active' => request()->routeIs('category*') ? 'active' : '',
+                'conditions' => [
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('view-any', App\Models\Admin\Category::class),
+                    ],
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('create', App\Models\Admin\Category::class),
+                    ],
+                ],
+                'children' => $this->indexCreateChildren('category', App\Models\Admin\Category::class)
+            ],
             [
                 'type' => 'breaker',
                 'name' => 'DEV TOOLS',
@@ -76,6 +113,11 @@ class MyMenu implements SidebarInterface
                 'name' => 'Github',
                 'icon' => 'fab fa-github',
                 'link' => 'https://github.com/pratiksh404/admineticl',
+            ],
+            [
+                'type' => 'link',
+                'name' => 'Approval Requests',
+                'link' => route('requests.index'),
             ],
         ];
     }

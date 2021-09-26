@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\ApprovalRequests;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ReorderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,17 +17,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::admineticAuth();
 
-Route::get('/', [HomeController::class, 'index']);
+// Resourcefull Routes
+Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => config('adminetic.middleware')], function () {
+    // Restful Routes
+    Route::resource('category', CategoryController::class);
+    Route::resource('post', PostController::class);
 
-Route::get('english/home', [HomeController::class, 'englishIndex'])->name('english.index');
-Route::get('nepali/home', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
+    // Single Routes
+    Route::get('category-children-reorder/{category}', [ReorderController::class, 'categoryChildrenReorder'])->name('categoryChildrenReorder');
+
+    //Approval Requests Admin route
+    Route::get('/portal/requests', [ApprovalRequests::class, 'index'])->name('requests.index');
+    Route::get('/portal/request/accept/{id}', [ApprovalRequests::class, 'update'])->name('requests.update');
+});
