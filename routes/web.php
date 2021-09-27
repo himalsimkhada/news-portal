@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\ApprovalRequests;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ReorderController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::admineticAuth();
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/english', [HomeController::class, 'englishIndex'])->name('english.index');
+Route::get('/nepali', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
 
 // Resourcefull Routes
 Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => config('adminetic.middleware')], function () {

@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
+use App\Models\Admin\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Foundation\Http\FormRequest;
 
 class PostRequest extends FormRequest {
     /**

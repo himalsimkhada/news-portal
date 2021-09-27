@@ -2,12 +2,14 @@
 
 namespace App\Models\Admin;
 
+use App\Models\User;
+use App\Traits\HasSlug;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Post extends Model {
-    use LogsActivity;
+    use LogsActivity, HasSlug;
 
     protected $guarded = [];
 
