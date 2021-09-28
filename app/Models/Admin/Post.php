@@ -2,8 +2,8 @@
 
 namespace App\Models\Admin;
 
+use App\Models\admin\Tag;
 use App\Models\User;
-use App\Models\Admin\Tag;
 use App\Models\Admin\Category;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;

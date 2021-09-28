@@ -8,9 +8,11 @@
         <div class="white gapping">
             <!--news 1 start-->
             <h1 class="mainNewsHeading">
-                <a href="details.php">मात्र अध्ययन, छैन कार्यान्वयन : सरकारले सार्वजनिक गर्न नचाहेको उच्चस्तरीय शिक्षा
-                    आयोगको प्रतिवेदन दुई वर्षपछि सुझाबकर्ताहरूद्वारा सार्वजनिक</a>
+                {{-- <a href="details.php">मात्र अध्ययन, छैन कार्यान्वयन : सरकारले सार्वजनिक गर्न नचाहेको उच्चस्तरीय शिक्षा
+                    आयोगको प्रतिवेदन दुई वर्षपछि सुझाबकर्ताहरूद्वारा सार्वजनिक</a> --}}
+                <a href="">{{ $posts->title }}</a>
             </h1>
+            <img src="{{ asset('storage/'. $posts->image) }}" alt="{{ $posts->title }}" class="img-fluid mainNewsImage">
         </div>
         <!--news 1 ends-->
 
