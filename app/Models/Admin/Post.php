@@ -4,18 +4,22 @@ namespace App\Models\Admin;
 
 use App\Models\admin\Tag;
 use App\Models\User;
-use App\Traits\HasSlug;
+use App\Models\Admin\Category;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Post extends Model {
-    use LogsActivity, HasSlug;
+class Post extends Model
+{
+    use LogsActivity, Sluggable;
+
 
     protected $guarded = [];
 
     // Forget cache on updating or saving and deleting
-    public static function boot() {
+    public static function boot()
+    {
         parent::boot();
 
         static::saving(function () {
@@ -28,7 +32,8 @@ class Post extends Model {
     }
 
     // Cache Keys
-    private static function cacheKey() {
+    private static function cacheKey()
+    {
         Cache::has('posts') ? Cache::forget('posts') : '';
     }
 
@@ -45,7 +50,8 @@ class Post extends Model {
      *
      * @return array
      */
-    public function sluggable(): array {
+    public function sluggable(): array
+    {
         return [
             'slug' => [
                 'source' => 'title'
@@ -53,22 +59,26 @@ class Post extends Model {
         ];
     }
     // Relation
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class, 'category_id');
     }
-    public function author() {
+    public function author()
+    {
         return $this->belongsTo(User::class, 'author_id');
     }
-    public function moderator() {
+    public function moderator()
+    {
         return $this->belongsTo(User::class, 'approve_by');
     }
-    //Relations
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 
     // Accessors
-    public function getStatusAttribute($attribute) {
+    public function getStatusAttribute($attribute)
+    {
         return [
             1 => 'Draft',
             2 => 'Pending',
