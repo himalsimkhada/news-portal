@@ -12,6 +12,7 @@
                     आयोगको प्रतिवेदन दुई वर्षपछि सुझाबकर्ताहरूद्वारा सार्वजनिक</a> --}}
                 <a href="">{{ $posts->title }}</a>
             </h1>
+            <img src="{{ asset('storage/'. $posts->image) }}" alt="{{ $posts->title }}" class="img-fluid mainNewsImage">
         </div>
         <!--news 1 ends-->
 
