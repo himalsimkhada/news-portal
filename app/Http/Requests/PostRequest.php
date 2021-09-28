@@ -3,16 +3,18 @@
 namespace App\Http\Requests;
 
 use App\Models\Admin\Post;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Foundation\Http\FormRequest;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class PostRequest extends FormRequest {
+class PostRequest extends FormRequest
+{
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize() {
+    public function authorize()
+    {
         return true;
     }
 
@@ -21,7 +23,8 @@ class PostRequest extends FormRequest {
      *
      * @return void
      */
-    protected function prepareForValidation() {
+    protected function prepareForValidation()
+    {
         $this->merge([
             'code' => $this->post->code ?? rand(100000, 999999),
             'slug' => SlugService::createSlug(Post::class, 'slug', $this->title)
@@ -33,7 +36,8 @@ class PostRequest extends FormRequest {
      *
      * @return array
      */
-    public function rules() {
+    public function rules()
+    {
         $id = $this->post->id ?? '';
         return [
             'code' => 'required|unique:posts,code,' . $id,

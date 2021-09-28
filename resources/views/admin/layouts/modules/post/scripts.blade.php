@@ -1,8 +1,8 @@
 <script>
-    $(function() {
+    $(function(){
         $("#tags").select2({
-            tags: true,
-            tokenSeparators: [',', ' ']
+        tags: true,
+        tokenSeparators: [',', ' ']
         });
     });
 </script>

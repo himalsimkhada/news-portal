@@ -4,39 +4,14 @@
 
 @section('content')
     <div class="container">
+        @forelse ($featured as $feature_news)
+            <div class="white">
+                <h1 class="mainNewsHeading"><a href="">{{ $feature_news->title }}</a></h1>
+                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}">
+            </div>
+        @empty
 
-        <div class="white gapping">
-            <!--news 1 start-->
-            <h1 class="mainNewsHeading">
-                {{-- <a href="details.php">मात्र अध्ययन, छैन कार्यान्वयन : सरकारले सार्वजनिक गर्न नचाहेको उच्चस्तरीय शिक्षा
-                    आयोगको प्रतिवेदन दुई वर्षपछि सुझाबकर्ताहरूद्वारा सार्वजनिक</a> --}}
-                <a href="{{ route('nepali.details', $posts->id) }}">{{ $posts->title }}</a>
-            </h1>
-            <img src="{{ asset('storage/'.$posts->image)}}" alt="{{ $posts->title }}" class="img-fluid mainNewsImage">
-        </div>
-        <!--news 1 ends-->
-        <div class="white gapping">
-            <!--news 2 start-->
-            <h1 class="mainNewsHeading">
-                <a href="details.php">
-                    लमजुङमा कोरोनाबाट एक वृद्धको मृत्यु
-                </a>
-            </h1>
-            <img src="{{ asset('img/images.jpg') }}" alt="mainNewsImage" class="img-fluid mainNewsImage">
-        </div>
-        <!--news 2 endds-->
-
-        <div class="white gapping">
-            <!--news 3 start-->
-            <h1 class="mainNewsHeading">
-                <a href="details.php">
-                    गुप्तचर प्रमुखलाई राति निवासमा भेटेकाे सुहाएन– भीम रावल, ‘रअ’ प्रमुखकाे हिसाबले उनी आएका हाेइनन्-
-                    परराष्ट्रमन्त्री
-                </a>
-            </h1>
-            <img src="img/meeting.gif" alt="mainNewsImage" class=" img-fluid mainNewsImage">
-        </div>
-        <!--news 3 ends-->
+        @endforelse
 
         <div class="ad2">
             <a href="#">
@@ -121,6 +96,17 @@
             </div>
             <div class="row">
                 <div class="col-md-4 marBot">
+                    @foreach ($all_news as $news)
+                        <div class="sideNews d-flex white">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                                class="img-fluid sideNewsImage">
+                            <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            {{-- <div class="row">
+                <div class="col-md-4 marBot">
                     <div class="sideNews d-flex white">
                         <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
                         <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
@@ -198,7 +184,7 @@
                                 खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
         </div>

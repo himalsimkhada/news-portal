@@ -1,3 +1,7 @@
+@php
+$nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
+@endphp
+
 <div class="white">
     <header class="site-header">
         <div class="container">
@@ -70,7 +74,7 @@
 
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     प्रदेश
@@ -84,28 +88,13 @@
                                     <a class="dropdown-item" href="#">प्रदेश 6</a>
                                     <a class="dropdown-item" href="#">प्रदेश 7</a>
                                 </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="antarastriya.php">अन्तर्राष्ट्रिय</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">जीवनशैली</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">सूचना प्रविधि</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">मनोरन्जन</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">खेलकुद</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">अर्थ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">अन्य</a>
-                            </li>
+                            </li> --}}
+                            @forelse ($nav as $items)
+                                <li class="nav-item"><a href="" class="nav-link">{{ $items->name }}</a>
+                                </li>
+                            @empty
+                                No Categories Added
+                            @endforelse
                             <li class="nav-eng dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
