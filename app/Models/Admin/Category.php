@@ -52,6 +52,11 @@ class Category extends Model {
         return $this->hasMany(Category::class)->with('categories');
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     // Scopes
 
     public function scopePositionCategory($query, $limit = 4) {

@@ -202,6 +202,17 @@
                 </h3>
             </div>
             <div class="row">
+                <div class="col-md-4 marBot">
+                    @foreach ($lifestyle_news as $news)
+                        <div class="sideNews d-flex white">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                                class="img-fluid sideNewsImage">
+                            <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            {{-- <div class="row">
                 <div class="col-md-8">
                     <div class="innerCard white">
                         <img src="img/paravaraka-samabnathha-sathhara-garana-vasata-sallha-yasa-garanahasa-2020-12-04.jpg"
@@ -239,7 +250,7 @@
                                 खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!--jibansaili ends-->
 
