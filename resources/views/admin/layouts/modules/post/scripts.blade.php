@@ -1,8 +1,8 @@
 <script>
-    $(function() {
-        $("#meta_keywords").select2({
-            tags: true,
-            tokenSeparators: [',', ' ']
-        })
+    $(function(){
+        $("#tags").select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
+        });
     });
 </script>

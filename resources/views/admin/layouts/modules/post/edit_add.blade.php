@@ -20,7 +20,7 @@
                                     <label for="excerpt">Post Excerpt</label>
                                     <div class="input-group">
                                         <textarea name="excerpt" id="excerpt"
-                                            class="excerpt form-control">{{ $post->excerpt ?? old('excerpt') }}</textarea>
+                                            class="excerpt form-control">{{$post->excerpt ?? old('excerpt')}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                         <label for="body">Body</label>
                         <textarea name="body" id="heavytexteditor">
                           @isset($post->body)
-                                  {!! $post->body !!}
+                              {!! $post->body !!}
                           @endisset
                           </textarea>
                     </div>
@@ -79,29 +79,27 @@
                                 <div class="col-lg-12">
                                     <label for="category_id">Category</label>
                                     <div class="input-group">
-                                        <select name="category_id" id="category_id" class="select2"
-                                            style="width: 100%">
+                                        <select name="category_id" id="category_id" class="select2" style="width: 100%">
                                             <option selected disabled>Select Parent Category ... </option>
                                             @isset($parentcategories)
-                                                @foreach ($parentcategories as $parent_category)
-                                                    @if (!isset($parent_category->category_id))
-                                                        <option value="{{ $parent_category->id }}"
-                                                            {{ isset($post->category_id) ? ($post->category_id == $parent_category->id ? 'selected' : '') : '' }}>
-                                                            {{ $parent_category->name }}</option>
-                                                        @isset($parent_category->childrenCategories)
-                                                            @php
-                                                                $parent_loop_index = $loop->index + 1;
-                                                            @endphp
-                                                            @foreach ($parent_category->childrenCategories as $child)
-                                                                @include('admin.layouts.modules.post.choose_child_category',
-                                                                ['child' =>
-                                                                $child,'parent_loop_index'
-                                                                => $parent_loop_index])
-                                                            @endforeach
+                                            @foreach ($parentcategories as $parent_category)
+                                            @if (!isset($parent_category->category_id))
+                                            <option value="{{ $parent_category->id }}"
+                                                {{isset($post->category_id) ? ($post->category_id == $parent_category->id ? 'selected' : '') : ''}}>
+                                                {{ $parent_category->name }}</option>
+                                            @isset($parent_category->childrenCategories)
+                                            @php
+                                            $parent_loop_index = $loop->index + 1;
+                                            @endphp
+                                            @foreach ($parent_category->childrenCategories as $child)
+                                            @include('admin.layouts.modules.post.choose_child_category', ['child' =>
+                                            $child,'parent_loop_index'
+                                            => $parent_loop_index])
+                                            @endforeach
 
-                                                        @endisset
-                                                    @endif
-                                                @endforeach
+                                            @endisset
+                                            @endif
+                                            @endforeach
                                             @endisset
                                         </select>
                                     </div>
@@ -129,9 +127,9 @@
                             <div class="row">
                                 <div class="col-lg-12 d-flex justify-content-center">
                                     @if (isset($post->image))
-                                        <br>
-                                        <img src="{{ asset('storage/' . $post->image) }}"
-                                            alt="{{ $post->name ?? '' }}" class="img-fluid" id="post_image">
+                                    <br>
+                                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->name ?? '' }}"
+                                        class="img-fluid" id="post_image">
                                     @endif
                                     <img src="" id="post_image_plcaeholder" class="img-fluid">
                                 </div>
@@ -176,18 +174,28 @@
                                     <label class="switch">
                                         <input type="hidden" name="featured" value="0">
                                         <input type="checkbox" name="featured"
-                                            {{ isset($post->featured) ? ($post->featured ? 'checked' : '') : '' }}
+                                            {{isset($post->featured) ? ($post->featured ? 'checked' : '') : ''}}
                                             value="1"><span class="switch-state"></span>
                                     </label>
                                 </div>
+                                <br>
                                 <div class="col-lg-12">
                                     <label>Active ? </label> <br>
                                     <label class="switch">
                                         <input type="hidden" name="active" value="0">
                                         <input type="checkbox" name="active"
-                                            {{ isset($post->active) ? ($post->active ? 'checked' : '') : 'checked' }}
+                                            {{isset($post->active) ? ($post->active ? 'checked' : '') : 'checked'}}
                                             value="1"><span class="switch-state"></span>
                                     </label>
+                                </div>
+                                <br>
+                                <div class="col-lg-12">
+                                    <label for="tags">Tags</label> <br>
+                                    <div class="input-group">
+                                        <select name="tags[]" id="tags" class="tags" style="width: 100%" multiple>
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -217,22 +225,21 @@
                                     <label for="meta_description">Meta Description</label>
                                     <div class="input-group">
                                         <textarea name="meta_description" id="meta_description"
-                                            style="width:100%">{{ $post->meta_description ?? '' }}</textarea>
+                                            style="width:100%">{{$post->meta_description ?? ''}}</textarea>
                                     </div>
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <label for="meta_keywords">Meta Keywords</label>
+                                    <label>Meta Keywords</label> <br>
                                     <div class="input-group">
-                                        <select name="meta_keywords[]" id="meta_keywords" class="tags form-control"
-                                            multiple>
+                                        <select name="meta_keywords[]" id="tags" class="tags form-control" multiple>
                                             @isset($post->meta_keywords)
-                                                @foreach ($post->meta_keywords as $meta_keyword)
-                                                    <option value="{{ $meta_keyword }}" selected>{{ $meta_keyword }}
-                                                    </option>
-                                                @endforeach
+                                            @foreach ($post->meta_keywords as $meta_keyword)
+                                            <option value="{{ $meta_keyword }}" selected>{{ $meta_keyword }}
+                                            </option>
+                                            @endforeach
                                             @endisset
                                         </select>
                                     </div>
