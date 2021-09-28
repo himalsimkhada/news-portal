@@ -9,7 +9,7 @@
         nonce="m2AZ4pS8"></script>
     <div class="whiteBg text-center">
         <div class="container">
-            <img src="img\kp-oli-1-web2020-12-07-01-08-22.gif" alt="mainNewsImage"
+            <img src="{{ asset('storage/'.$post->image) }}" alt="mainNewsImage"
                 class="img-fluid mainNewsImage detailedImage text-center">
             <h1 class="mainNewsHeading text-center">
                 <a href="detail.php"></a>
@@ -21,13 +21,13 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!--image of reporter-->
-                            <img src="{{ isset($post->image) ? asset('storage/'.$post->image) : '' }}" alt="Reporter" class="img-fluid reporterImage">
+                            <img src="{{ asset('storage/'.$post->image) }}" alt="Reporter" class="img-fluid reporterImage">
                         </div>
                         <!--image of reporter-->
                         <div class="col-md-8 reporterDetails">
                             <!--name address of reporter-->
-                            <h5 class="reporterName">{{ $post->author_id }}</h5>
-                            <h6 class="reporterAddress">भक्तपुर</h6>
+                            <h5 class="reporterName">{{ $post->author->name }}</h5>
+                            <h6 class="reporterAddress">Address</h6>
                         </div>
                         <!--name address of reporter-->
                     </div>
@@ -70,23 +70,8 @@
                         <a href="#">अन्तर्राष्ट्रिय</a>
                         <a href="#">अर्थ</a>
                     </div>
-                    <p class="text-left newsText lineGap">आफ्नै दलभित्रको किचलो उच्चतम स्तरमा पुगेका बेला प्रधानमन्त्री केपी
-                        शर्मा ओलीले अकस्मात सर्बदलीय बैठक बोलाउन लागेका छन् ।
-
-                        प्रधानमन्त्री ओलीले अहिलेको बदलिँदो परिस्थितिका बारेमा छलफल गर्नका सर्वदलीय बैठक बोलाउन लागेको
-                        स्रोतले जनाएको छ ।
-
-                        सम्भवत भोली मंगलबार सर्बदलीय बैठक बोलाउने सम्भावना रहेको स्रोतले जनाएको छ ।
-
-                        बैठक बोलाउने बारे प्रधानमन्त्री अन्तिम तयारीमा रहेको स्रोतको भनाई छ ।
-
-                        सत्तारुढ दल नेपाल कम्युनिष्ट पार्टी भित्र सत्ता संघर्ष चर्किरहेको र दलको स्थायी समिति बैठकमा समेत
-                        सहभागि नभएका प्रधानमन्त्रीले बोलाएको सर्बदलीय बैठकले धेरैको ध्यानाकर्षण गराएको छ ।
-
-                        प्रधानमन्त्रीले के विषयमा छलफल गर्नका लागि यो बैठक डाक्न लागेको भन्ने अझै यकिन भने हुन सकेको छैन ।
-
-                        तर अहिलेको बदलिदो परिस्थिति र समसामयिक विषयमा छलफल हुने स्रातले जनाएको छ । खासगरी पछिल्ला दिनमा
-                        सडकमा देखिएको प्रदर्शनका विषयमा दलहरुको साझा धारणा बुझ्नका लागि बैठक डाकिन लागेको स्रोतको भनाई छ ।
+                    <p class="text-left newsText lineGap">
+                        {{ $post->meta_description }}
                     </p>
                 </div>
             </div>

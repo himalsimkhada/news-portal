@@ -51,7 +51,7 @@ class HomeController extends Controller {
      */
     public function show($id) {
         //
-        $post = Post::where('id', $id)->get();
+        $post = Post::with('author')->where('id', $id)->first();
         return view('nepali.details', compact('post'));
     }
 
