@@ -10,11 +10,10 @@
             <h1 class="mainNewsHeading">
                 {{-- <a href="details.php">मात्र अध्ययन, छैन कार्यान्वयन : सरकारले सार्वजनिक गर्न नचाहेको उच्चस्तरीय शिक्षा
                     आयोगको प्रतिवेदन दुई वर्षपछि सुझाबकर्ताहरूद्वारा सार्वजनिक</a> --}}
-                <a href="">{{ $posts->title }}</a>
+                <a href="{{ route('nepali.details', $posts->id) }}">{{ $posts->title }}</a>
             </h1>
         </div>
         <!--news 1 ends-->
-
         <div class="white gapping">
             <!--news 2 start-->
             <h1 class="mainNewsHeading">
