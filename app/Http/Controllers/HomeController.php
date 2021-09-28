@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
@@ -19,7 +20,8 @@ class HomeController extends Controller {
     }
 
     public function nepaliIndex() {
-        return view('nepali.home');
+        $posts = Post::where('status', 3)->first();
+        return view('nepali.home', compact('posts'));
     }
 
     /**

@@ -64,4 +64,20 @@ class PostRepository implements PostRepositoryInterface {
             $image->save(public_path('storage/' . $post->image));
         }
     }
+
+    // Assign Tags
+    protected function assignTags(Post $post) {
+        $tags_id = array();
+        if (request()->has('tags')) {
+            foreach (request()->tags as $tag_name) {
+                // Create or Find Tag
+                $tag = Tag::firstOrCreate(
+                    ['name' => trim($tag_name)],
+                    ['slug' => Str::slug(trim($tag_name))]
+                );
+                $tags_id[] = $tag->id;
+            }
+            $post->tags()->attach($tags_id);
+        }
+    }
 }

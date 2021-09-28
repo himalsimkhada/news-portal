@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\admin\Tag;
 use App\Models\User;
 use App\Traits\HasSlug;
 use Illuminate\Support\Facades\Cache;
@@ -60,6 +61,10 @@ class Post extends Model {
     }
     public function moderator() {
         return $this->belongsTo(User::class, 'approve_by');
+    }
+    //Relations
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
     }
 
     // Accessors
