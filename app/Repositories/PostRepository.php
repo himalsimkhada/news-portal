@@ -8,6 +8,8 @@ use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 use App\Contracts\PostRepositoryInterface;
+use App\Models\Admin\Tag;
+use Illuminate\Support\Str;
 
 class PostRepository implements PostRepositoryInterface {
     // Post Index
@@ -30,6 +32,7 @@ class PostRepository implements PostRepositoryInterface {
     public function storePost(PostRequest $request) {
         $post = Post::create($request->validated());
         $this->uploadImage($post);
+        $this->assignTags($post);
     }
 
     // Post Show
