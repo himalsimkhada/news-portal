@@ -3,13 +3,14 @@
 namespace App\Models\Admin;
 
 use App\Traits\HasSlug;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Category extends Model
 {
-    use LogsActivity, HasSlug;
+    use LogsActivity, HasSlug, HasFactory;
 
     protected $guarded = [];
 

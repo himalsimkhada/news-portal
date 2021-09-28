@@ -8,7 +8,7 @@
         @forelse ($featured as $feature_news)
             <div class="white">
                 <h1 class="mainNewsHeading"><a href="">{{ $feature_news->title }}</a></h1>
-                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}">
+                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}" class="img-fluid mainNewsImage">
             </div>
         @empty
 

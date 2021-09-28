@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Admin;
 
-use App\Models\Post;
+use App\Models\Admin\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -14,7 +14,7 @@ class PostFactory extends Factory
      * @var string
      */
     protected $model = Post::class;
-    
+
     /**
      * Define the model's default state.
      *
@@ -22,16 +22,16 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->realText($maxNbChars = 50, $indexSize = 2);
-        $category = [1, 2, 3, 4, 5, 6, 7, 8];
-        shuffle($category);
+        $title = $this->faker->sentence();
         return [
             'title' => $title,
+            'code' => rand(100, 3000000),
             'slug' => Str::slug($title),
-            'category_id' => $category[1],
+            'category_id' => rand(1, 8),
             'author_id' => 1,
-            'body' => '<p>' . $this->faker->faker->realText($maxNbChars = 400, $indexSize = 2) .'</p>',
-            // 'image' => 'news/post/default/6tgxSWOEXBMd1WmSFkPRgFDCuyOzgux7tTpLDEAb.jpg',
+            'body' => '<p>' . $this->faker->sentence() .'</p>',
+            'image' => 'news/post/default/adoBPqzQxJ4tkqosamu8L6ShhQ21Ag9jYnNfRUtN.jpg',
+            'featured' => rand(0, 1),
         ];
-    } 
+    }
 }
