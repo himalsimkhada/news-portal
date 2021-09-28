@@ -20,8 +20,11 @@ class HomeController extends Controller {
     }
 
     public function nepaliIndex() {
+        $all_news = Post::limit(15)->get();
         $posts = Post::where('status', 3)->first();
-        return view('nepali.home', compact('posts'));
+        $featured = Post::where('featured', 1)
+            ->orderBy('created_at', 'DESC')->limit(3)->get();
+        return view('nepali.home', compact('posts', 'featured', 'all_news'));
     }
 
     /**
@@ -51,6 +54,8 @@ class HomeController extends Controller {
      */
     public function show($id) {
         //
+        $post = Post::where('id', $id)->get();
+        return view('nepali.details', compact('post'));
     }
 
     /**

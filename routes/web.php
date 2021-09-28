@@ -23,6 +23,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/english', [HomeController::class, 'englishIndex'])->name('english.index');
 Route::get('/nepali', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
 
+// post details
+Route::get('/details/{id}', [HomeController::class, 'show'])->name('nepali.details');
+
 // Resourcefull Routes
 Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => config('adminetic.middleware')], function () {
     // Restful Routes
