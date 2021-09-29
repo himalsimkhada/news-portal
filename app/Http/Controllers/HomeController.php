@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Category;
 use App\Models\Admin\Post;
 use Illuminate\Http\Request;
 
@@ -20,11 +21,12 @@ class HomeController extends Controller {
     }
 
     public function nepaliIndex() {
-        $all_news = Post::limit(15)->get();
+        $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
+        $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
         $posts = Post::where('status', 3)->first();
         $featured = Post::where('featured', 1)
             ->orderBy('created_at', 'DESC')->limit(3)->get();
-        return view('nepali.home', compact('posts', 'featured', 'all_news'));
+        return view('nepali.home', compact('posts', 'featured', 'all_news', 'lifestyle_news'));
     }
 
     /**
@@ -54,7 +56,7 @@ class HomeController extends Controller {
      */
     public function show($id) {
         //
-        $post = Post::where('id', $id)->get();
+        $post = Post::with('author')->where('id', $id)->first();
         return view('nepali.details', compact('post'));
     }
 
