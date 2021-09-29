@@ -71,7 +71,7 @@
                         <a href="#">अर्थ</a>
                     </div>
                     <p class="text-left newsText lineGap">
-                        {{ $post->meta_description }}
+                        {!! $post->body !!}
                     </p>
                 </div>
             </div>
