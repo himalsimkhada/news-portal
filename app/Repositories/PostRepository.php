@@ -37,7 +37,6 @@ class PostRepository implements PostRepositoryInterface
         $post = Post::create($request->validated());
         $this->assignTags($post);
         $this->uploadImage($post);
-        $this->assignTags($post);
     }
 
     // Post Show
