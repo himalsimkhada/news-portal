@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::admineticAuth();
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('index');
 // Route::get('/english', [HomeController::class, 'englishIndex'])->name('english.index');
 // Route::get('/nepali', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
 
