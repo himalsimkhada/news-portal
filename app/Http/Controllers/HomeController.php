@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\Category;
 use App\Models\Admin\Post;
 use Illuminate\Http\Request;
+use Pratiksh\Nepalidate\Facades\NepaliDate;
 
 class HomeController extends Controller {
     /**
@@ -18,6 +19,7 @@ class HomeController extends Controller {
         $posts = Post::where('status', 3)->first();
         $featured = Post::where('featured', 1)
             ->orderBy('created_at', 'DESC')->limit(3)->get();
+        
         return view('nepali.home', compact('posts', 'featured', 'all_news', 'lifestyle_news'));
     }
 
@@ -49,7 +51,8 @@ class HomeController extends Controller {
     public function show($id) {
         //
         $post = Post::with('author')->where('id', $id)->first();
-        return view('nepali.details', compact('post'));
+        $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
+        return view('nepali.details', compact('post', 'nepaliDate'));
     }
 
     /**
