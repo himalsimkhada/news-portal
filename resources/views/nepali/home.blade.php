@@ -95,15 +95,23 @@
                 </h3>
             </div>
             <div class="row">
-                <div class="col-md-4 marBot">
-                    @foreach ($all_news as $news)
-                        <div class="sideNews d-flex white">
+                @foreach ($all_news as $key => $news)
+                    {{-- @if($key % 5 == 0)
+                        @endif --}}
+                    <div class="col-md-4 marBot">
+                        <div class="sideNews d-flex white"
+                        {{-- @if($key % 5 == 0)
+                            marZero
+                        @endif --}}
+                        >
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                    {{-- @if($key % 5 == 0)
+                    @endif --}}
+                @endforeach
             </div>
             {{-- <div class="row">
                 <div class="col-md-4 marBot">

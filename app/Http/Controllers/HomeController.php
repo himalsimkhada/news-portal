@@ -21,6 +21,8 @@ class HomeController extends Controller {
     }
 
     public function nepaliIndex() {
+        $related_news = Post::first();
+        dd($related_news->tags);
         $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
         $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
         $posts = Post::where('status', 3)->first();
