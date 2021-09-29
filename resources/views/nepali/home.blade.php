@@ -5,15 +5,17 @@
 @section('content')
     <div class="container">
 
-        @forelse ($featured as $feature_news)
-            <div class="white">
-                <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $feature_news->id) }}">{{ $feature_news->title }}</a></h1>
-                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}"
+        @foreach ($featured as $key => $news)
+            <div class="white gapping">
+                <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $news->id) }}">{{ $news->title }}</a>
+                </h1>
+                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                     class="img-fluid mainNewsImage">
             </div>
-        @empty
-
-        @endforelse
+            @if ($key == 2)
+            @break
+        @endif
+        @endforeach
 
         <div class="ad2">
             <a href="#">
@@ -32,39 +34,34 @@
                 </h3>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <div class="innerCard white">
-                        <img src="img/death.jpg" alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
-                        <h2 class="innerCardMainHeading"><a href="details.php">कोरोना संक्रमणबाट थप १७ जनाको निधन</a></h2>
-                        <p class="newsText">नेपालमा पछिल्लो २४ घन्टामा कोरोना संक्रमणबाट थप १७ जनाको निधन भएको छ ।
-                            स्वास्थ्य तथा जनसंख्या मन्त्रालयले आइतबार अपराह्न दिएको जानकारीअनुसार नेपालमा कोरोना...</p>
-                    </div>
-                </div>
+                @foreach ($featured as $key => $news)
+                    @if ($key == 0)
+                        <div class="col-md-8">
+                            <div class="innerCard white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="InnerCardMainImage"
+                                    class="img-fluid innerCardMainImage">
+                                <h2 class="innerCardMainHeading"><a
+                                        href="{{ route('nepali.details', $news->id) }}">{{ $news->title }}</a></h2>
+                                <p class="newsText">{{ strip_tags(substr($news->body, 0, 20)) }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
                 <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको
-                                खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/rai.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न
-                                खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
+                    @foreach ($featured as $key => $news)
+                        @if ($key != 0)
+                            <div class="sideNews d-flex white marZero">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 15) }}</a>
+                                </h6>
+                            </div>
+                        @endif
+                        @if ($key == 5)
+                        @break
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -98,102 +95,21 @@
             </div>
             <div class="row">
                 @foreach ($all_news as $key => $news)
-                    {{-- @if ($key % 5 == 0) --}}
                     <div class="col-md-4 marBot">
-                        {{-- @endif --}}
                         <div class="sideNews d-flex white marZero">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 30) }}</a></h6>
+                            <h6 class="sideNewsTopic"><a
+                                    href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 30) }}</a>
+                            </h6>
                         </div>
-                        {{-- @if ($key % 5 == 0) --}}
                     </div>
-                    {{-- @endif --}}
+                    @if ($key == 14)
+                    @break
+                @endif
                 @endforeach
 
             </div>
-            {{-- <div class="row">
-                <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको
-                                खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/rai.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न
-                                खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
-                </div>
-                <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/corona.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको
-                                खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img\cricket2020-12-05-09-20-48.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img\1202995435.jpg.0.webp" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न
-                                खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
-                </div>
-                <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/-30.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/-25.png" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको
-                                खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/-38.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/-17.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न
-                                खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
-                </div>
-            </div> --}}
-
-
         </div>
         <!--samachra ends-->
 
@@ -208,55 +124,19 @@
                 </h3>
             </div>
             <div class="row">
-                <div class="col-md-4 marBot">
-                    @foreach ($lifestyle_news as $news)
+                @foreach ($lifestyle_news as $key => $news)
+                    <div class="col-md-4 marBot">
                         <div class="sideNews d-flex white">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
+                            <h6 class="sideNewsTopic"><a href="">{{ substr($news->title, 0, 20) }}</a></h6>
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                    @if ($key == 14)
+                    @break
+                @endif
+                @endforeach
             </div>
-            {{-- <div class="row">
-                <div class="col-md-8">
-                    <div class="innerCard white">
-                        <img src="img/paravaraka-samabnathha-sathhara-garana-vasata-sallha-yasa-garanahasa-2020-12-04.jpg"
-                            alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
-                        <h2 class="innerCardMainHeading"><a href="details.php">पारिवारिक सम्बन्ध सुधार गर्न वास्तु सल्लाह
-                                यसो गर्नुहोस</a></h2>
-                        <p class="newsText">तपाईंको परिवारको उत्तरपूर्वी भागमा तपाईंको परिवारको खुशीका तस्वीरहरू
-                            राख्नुहोस् तपाईंको जीवनमा खुशी ल्याउन। यदि घरका परिवारका सदस्यहरूबीचको सम्बन्ध कुनै पनि
-                            हिसाबले...</p>
-                    </div>
-                </div>
-                <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                विरुद्धको खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/rai.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न
-                                खोजियो (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
-                </div>
-            </div> --}}
         </div>
         <!--jibansaili ends-->
 
@@ -271,40 +151,34 @@
                 </h3>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <div class="innerCard white">
-                        <img src="img/1202995435.jpg.0.webp" alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
-                        <h2 class="innerCardMainHeading"><a href="details.php">पारिवारिक सम्बन्ध सुधार गर्न वास्तु सल्लाह
-                                यसो गर्नुहोस</a></h2>
-                        <p class="newsText">तपाईंको परिवारको उत्तरपूर्वी भागमा तपाईंको परिवारको खुशीका तस्वीरहरू
-                            राख्नुहोस् तपाईंको जीवनमा खुशी ल्याउन। यदि घरका परिवारका सदस्यहरूबीचको सम्बन्ध कुनै पनि
-                            हिसाबले...</p>
-                    </div>
-                </div>
+                @foreach ($international_news as $key => $news)
+                    @if ($key == 0)
+                        <div class="col-md-8">
+                            <div class="innerCard white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="InnerCardMainImage"
+                                    class="img-fluid innerCardMainImage">
+                                <h2 class="innerCardMainHeading"><a
+                                        href="{{ route('nepali.details', $news->id) }}">{{ $news->title }}</a></h2>
+                                <p class="newsText">{{ strip_tags(substr($news->body, 0, 20)) }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
                 <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६ थपिए</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको खोप
-                                ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/rai.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न खोजियो
-                                (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
+                    @foreach ($international_news as $key => $news)
+                        @if ($key != 0)
+                            <div class="sideNews d-flex white marZero">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 15) }}</a>
+                                </h6>
+                            </div>
+                        @endif
+                        @if ($key == 5)
+                        @break
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -321,40 +195,33 @@
                 </h3>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <div class="innerCard white">
-                        <img src="img\2134021-11090818.jpg" alt="InnerCardMainImage" class="img-fluid innerCardMainImage">
-                        <h2 class="innerCardMainHeading"><a href="details.php">चैतसम्ममा मौजाको सेमी हाइअल्टिच्युड खेल
-                                मैदान खेल्न</a></h2>
-                        <p class="newsText">पोखरा महानगरपालिका वडा २० को मौजामा बन्न लागेको सेमि हाईअल्टिच्युड
-                            खेलमैदा अगामी चैतको अन्त्यसम्म खेल्न योग्य बनाइने भएको छ । खेल मैदानका लागि डिपिआर तयार भएर...
-                        </p>
-                    </div>
-                </div>
+                @foreach ($sports_news as $key => $news)
+                    @if ($key == 0)
+                        <div class="col-md-8">
+                            <div class="innerCard white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="InnerCardMainImage"
+                                    class="img-fluid innerCardMainImage">
+                                <h2 class="innerCardMainHeading"><a
+                                        href="{{ route('nepali.details', $news->id) }}">{{ $news->title }}</a></h2>
+                                <p class="newsText">{{ substr($news->title, 0, 20) }}</p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
                 <div class="col-md-4 marBot">
-                    <div class="sideNews d-flex white marZero">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६ थपिए</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९ विरुद्धको खोप
-                                ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/rai.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/oli.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="#">ओलीले भने, ‘खेलको उत्तरार्द्धमा नियम परिवर्तन गर्न खोजियो
-                                (पत्रको पूर्णपाठसहित)</a></h6>
-                    </div>
+                    @foreach ($sports_news as $key => $news)
+                        @if ($key != 0)
+                            <div class="sideNews d-flex white marZero">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a href="#">{{ substr($news->title, 0, 15) }}</a>
+                                </h6>
+                            </div>
+                        @endif
+                        @if ($key == 5)
+                        @break
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -379,21 +246,18 @@
                     </div>
                     <!--news type heading ending-->
                     <!--left side news cards starts here-->
-                    <div class="sideNews d-flex white">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                विरुद्धको खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white sideNewsMarBot">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
+                    @foreach ($sports_news as $key => $news)
+                        <div class="sideNews d-flex white">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                class="img-fluid sideNewsImage">
+                            <h6 class="sideNewsTopic"><a
+                                    href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 15) }}</a>
+                            </h6>
+                        </div>
+                        @if ($key == 2)
+                        @break
+                    @endif
+                    @endforeach
                     <!--left side news cards ends here-->
                 </div>
                 <!--news part of left ends-->
@@ -418,31 +282,18 @@
                     </div>
                     <!--news type heading ending-->
                     <!--middle side news cards starts here-->
-                    <div class="sideNews d-flex white">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                विरुद्धको खोप ल्याउने तयारी</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
-                    <div class="sideNews d-flex white sideNewsMarBot">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
+                    @foreach ($sports_news as $key => $news)
+                        <div class="sideNews d-flex white">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                class="img-fluid sideNewsImage">
+                            <h6 class="sideNewsTopic"><a
+                                    href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 15) }}</a>
+                            </h6>
+                        </div>
+                        @if ($key == 5)
+                        @break
+                    @endif
+                    @endforeach
                     <!--middle side news cards ends here-->
                 </div>
                 <!--news part of middle ends-->
@@ -467,21 +318,18 @@
                     </div>
                     <!--news type heading ending-->
                     <!--left side news cards starts here-->
-                    <div class="sideNews d-flex white">
-                        <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए, १०९६
-                                थपिए</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white">
-                        <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                विरुद्धको</a></h6>
-                    </div>
-                    <div class="sideNews d-flex white sideNewsMarBot">
-                        <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                        <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                        </h6>
-                    </div>
+                    @foreach ($sports_news as $key => $news)
+                        <div class="sideNews d-flex white">
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
+                                class="img-fluid sideNewsImage">
+                            <h6 class="sideNewsTopic"><a
+                                    href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 15) }}</a>
+                            </h6>
+                        </div>
+                        @if ($key == 2)
+                        @break
+                    @endif
+                    @endforeach
                     <!--left side news cards ends here-->
                 </div>
                 <!--news part of left ends-->

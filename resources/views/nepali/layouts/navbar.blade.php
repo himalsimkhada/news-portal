@@ -28,14 +28,19 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                     </div>
                     <div class="col-md-4">
                         <ul class="socialButtons">
-                            <li><a href="#"><img src="{{ asset('img/home-facebook.png') }}" alt="facebook" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-facebook.png') }}" alt="facebook"
+                                        class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/home-insta1.png') }}" alt="instagram" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-insta1.png') }}" alt="instagram"
+                                        class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/home-twitter1.png') }}" alt="twitter" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-twitter1.png') }}" alt="twitter"
+                                        class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/viber.png') }}" alt="viber" class="img-fluid"></a></li>
-                            <li><a href="#"><img src="{{ asset('img/home-youtube1.png') }}" alt="youtube" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/viber.png') }}" alt="viber"
+                                        class="img-fluid"></a></li>
+                            <li><a href="#"><img src="{{ asset('img/home-youtube1.png') }}" alt="youtube"
+                                        class="img-fluid"></a>
                             </li>
                             <li>
                                 <div class="search-icon">
@@ -61,7 +66,9 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
+                            <li class="nav-item"><a href="{{ route('index') }}" class="nav-link">गृहपृष्ठ</a>
+                            </li>
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="index.php" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     गृहपृष्ठ
@@ -73,7 +80,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                                     <a class="dropdown-item" href="indexenglishtwo.php">English 2</a>
 
                                 </div>
-                            </li>
+                            </li> --}}
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

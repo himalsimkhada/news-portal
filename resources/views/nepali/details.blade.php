@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!--image of reporter-->
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="Reporter"
+                            <img src="{{ asset('storage/' . $post->author->name) }}" alt="Reporter"
                                 class="img-fluid reporterImage">
                         </div>
                         <!--image of reporter-->

@@ -32,6 +32,7 @@ class PostFactory extends Factory
             'body' => '<p>' . $this->faker->sentence() .'</p>',
             'image' => 'news/post/default/adoBPqzQxJ4tkqosamu8L6ShhQ21Ag9jYnNfRUtN.jpg',
             'featured' => rand(0, 1),
+            'status' => rand(0, 3),
         ];
     }
 }
