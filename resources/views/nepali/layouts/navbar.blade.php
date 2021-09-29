@@ -7,7 +7,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
         <div class="container">
             <div class="row">
                 <div class="col-md-12 headerLogoTwo">
-                    <a href="index.php">
+                    <a href="/">
                         <img src="{{ asset('img/logopng.png') }}" alt="logo" class="img-fluid">
                     </a>
                 </div>

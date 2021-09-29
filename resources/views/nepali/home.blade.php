@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container">
-
         @forelse ($featured as $feature_news)
             <div class="white">
                 <h1 class="mainNewsHeading"><a href="">{{ $feature_news->title }}</a></h1>
