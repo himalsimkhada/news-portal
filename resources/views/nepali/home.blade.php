@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="container">
+
         @forelse ($featured as $feature_news)
             <div class="white">
                 <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $feature_news->id) }}">{{ $feature_news->title }}</a></h1>
