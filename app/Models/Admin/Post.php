@@ -8,11 +8,12 @@ use App\Models\Admin\Category;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Post extends Model
 {
-    use LogsActivity, Sluggable;
+    use LogsActivity, Sluggable, HasFactory;
 
 
     protected $guarded = [];
