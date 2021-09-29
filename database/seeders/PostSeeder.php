@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\Post;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
-class PostSeeder extends Seeder
-{
+class PostSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
-        //
+    public function run() {
+        Post::factory()->count(50)->create();
     }
 }
