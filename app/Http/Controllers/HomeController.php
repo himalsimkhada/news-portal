@@ -13,14 +13,6 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('index');
-    }
-
-    public function englishIndex() {
-        return view('english.home');
-    }
-
-    public function nepaliIndex() {
         $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
         $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
         $posts = Post::where('status', 3)->first();
