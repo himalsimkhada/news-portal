@@ -107,12 +107,13 @@
                     </h3>
                 </div>
                 <div class="row marSide">
-                    <div class="col-md-3 col-sm-4 categoryCard">
-                        <img src="img/corona.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">गुप्तचर प्रमुखलाई राति निवासमा भेटेकाे सुहाएन– भीम रावल, ‘रअ’ प्रमुखकाे
-                                हिसाबले उनी आएका हाेइनन्- परराष्ट्रमन्त्री</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 categoryCard">
+                    @foreach ($relatedPost as $value)
+                        <div class="col-md-3 col-sm-4 categoryCard">
+                            <img src="img/corona.jpg" alt="news" class="img-fluid">
+                            <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-md-3 col-sm-4 categoryCard">
                         <img src="img/-17.jpg" alt="news" class="img-fluid">
                         <h5><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h5>
                     </div>
@@ -141,7 +142,7 @@
                     <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
                         <img src="img\prakashman.jpg" alt="news" class="img-fluid">
                         <h5><a href="details.php">सत्ता एरोगेन्टको दुष्चक्रमा नेकपा</a></h5>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>

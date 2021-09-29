@@ -24,6 +24,7 @@ class PostFactory extends Factory
     {
         $title = $this->faker->sentence();
         return [
+            'code' => rand(100000, 999999),
             'title' => $title,
             'code' => rand(100, 3000000),
             'slug' => Str::slug($title),

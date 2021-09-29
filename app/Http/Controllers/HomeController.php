@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Category;
 use App\Models\Admin\Post;
+use App\Models\Admin\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Pratiksh\Nepalidate\Facades\NepaliDate;
 
 class HomeController extends Controller {
@@ -51,8 +53,22 @@ class HomeController extends Controller {
     public function show($id) {
         //
         $post = Post::with('author')->where('id', $id)->first();
+        $tagId = [];
+        foreach($post->tags as $tag){
+            $tagId[] = $tag['id'];
+        }
+        $tag = tag::whereIn('id', $tagId)->get();
+        $postId = [];
+        foreach($tag as $tag){
+            foreach($tag->posts as $post){
+                $postId[] = $post->id;
+            }
+        }
+        sort($postId);
+        $postId = array_unique($postId);
+        $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
-        return view('nepali.details', compact('post', 'nepaliDate'));
+        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
     public function categoryPost($id){
