@@ -26,7 +26,7 @@
             <div class="row text-left">
                 <div class="col-md-4">
                     <a href="indexsec.php">
-                        <img src="img/logo.png" alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
+                        <img src="{{ asset('img/logo.png') }}" alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
                     </a>
                     <div class="footerContact">
                         <h5 class="footerPageName pt-3 pb-4">न्यूज़ पोर्टल</h5>

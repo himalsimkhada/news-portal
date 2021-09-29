@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Category;
 use App\Models\Admin\Post;
+use App\Models\Admin\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller {
     /**
@@ -13,16 +15,6 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('index');
-    }
-
-    public function englishIndex() {
-        return view('english.home');
-    }
-
-    public function nepaliIndex() {
-        $related_news = Post::first();
-        dd($related_news->tags);
         $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
         $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
         $posts = Post::where('status', 3)->first();
@@ -59,7 +51,21 @@ class HomeController extends Controller {
     public function show($id) {
         //
         $post = Post::with('author')->where('id', $id)->first();
-        return view('nepali.details', compact('post'));
+        $tagId = [];
+        foreach($post->tags as $tag){
+            $tagId[] = $tag['id'];
+        }
+        $tag = tag::whereIn('id', $tagId)->get();
+        $postId = [];
+        foreach($tag as $tag){
+            foreach($tag->posts as $post){
+                $postId[] = $post->id;
+            }
+        }
+        sort($postId);
+        $postId = array_unique($postId);
+        $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
+        return view('nepali.details', compact('post', 'relatedPost'));
     }
 
     /**

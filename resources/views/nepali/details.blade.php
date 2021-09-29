@@ -9,10 +9,10 @@
         nonce="m2AZ4pS8"></script>
     <div class="whiteBg text-center">
         <div class="container">
-            <img src="{{ asset('storage/'.$post->image) }}" alt="mainNewsImage"
+            <img src="{{ asset('storage/' . $post->image) }}" alt="mainNewsImage"
                 class="img-fluid mainNewsImage detailedImage text-center">
             <h1 class="mainNewsHeading text-center">
-                <a href="detail.php"></a>
+                <a href="">{{ $post->title }}</a>
             </h1>
             <hr>
 
@@ -21,7 +21,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!--image of reporter-->
-                            <img src="{{ asset('storage/'.$post->image) }}" alt="Reporter" class="img-fluid reporterImage">
+                            <img src="{{ asset('storage/' . $post->author->name) }}" alt="Reporter"
+                                class="img-fluid reporterImage">
                         </div>
                         <!--image of reporter-->
                         <div class="col-md-8 reporterDetails">
@@ -71,7 +72,7 @@
                         <a href="#">अर्थ</a>
                     </div>
                     <p class="text-left newsText lineGap">
-                        {{ $post->meta_description }}
+                        {{ strip_tags($post->body) }}
                     </p>
                 </div>
             </div>
@@ -105,12 +106,13 @@
                     </h3>
                 </div>
                 <div class="row marSide">
-                    <div class="col-md-3 col-sm-4 categoryCard">
-                        <img src="img/corona.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">गुप्तचर प्रमुखलाई राति निवासमा भेटेकाे सुहाएन– भीम रावल, ‘रअ’ प्रमुखकाे
-                                हिसाबले उनी आएका हाेइनन्- परराष्ट्रमन्त्री</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 categoryCard">
+                    @foreach ($relatedPost as $value)
+                        <div class="col-md-3 col-sm-4 categoryCard">
+                            <img src="img/corona.jpg" alt="news" class="img-fluid">
+                            <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-md-3 col-sm-4 categoryCard">
                         <img src="img/-17.jpg" alt="news" class="img-fluid">
                         <h5><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h5>
                     </div>
@@ -139,7 +141,7 @@
                     <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
                         <img src="img\prakashman.jpg" alt="news" class="img-fluid">
                         <h5><a href="details.php">सत्ता एरोगेन्टको दुष्चक्रमा नेकपा</a></h5>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -192,8 +194,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                        <img src="img/r7.gif" alt="ad" class="img-fluid">
-                    </a> -->
+                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                        </a> -->
                 </div>
                 <!--left side ends-->
 
@@ -289,4 +291,3 @@
     </div>
     </div>
 @endsection
-

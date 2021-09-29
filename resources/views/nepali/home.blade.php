@@ -4,10 +4,12 @@
 
 @section('content')
     <div class="container">
+
         @forelse ($featured as $feature_news)
             <div class="white">
-                <h1 class="mainNewsHeading"><a href="">{{ $feature_news->title }}</a></h1>
-                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}" class="img-fluid mainNewsImage">
+                <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $feature_news->id) }}">{{ $feature_news->title }}</a></h1>
+                <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}"
+                    class="img-fluid mainNewsImage">
             </div>
         @empty
 
@@ -96,22 +98,19 @@
             </div>
             <div class="row">
                 @foreach ($all_news as $key => $news)
-                    {{-- @if($key % 5 == 0)
-                        @endif --}}
+                    {{-- @if ($key % 5 == 0) --}}
                     <div class="col-md-4 marBot">
-                        <div class="sideNews d-flex white"
-                        {{-- @if($key % 5 == 0)
-                            marZero
-                        @endif --}}
-                        >
+                        {{-- @endif --}}
+                        <div class="sideNews d-flex white marZero">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
+                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 30) }}</a></h6>
                         </div>
+                        {{-- @if ($key % 5 == 0) --}}
                     </div>
-                    {{-- @if($key % 5 == 0)
-                    @endif --}}
+                    {{-- @endif --}}
                 @endforeach
+
             </div>
             {{-- <div class="row">
                 <div class="col-md-4 marBot">

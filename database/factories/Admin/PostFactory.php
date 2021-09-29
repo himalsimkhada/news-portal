@@ -22,6 +22,11 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        // $title = ['people', 'earth', 'planet', 'galaxy', 'parent', 'murder', 'child', 'gun', 'drugs', 'home', 'family', 'food', 'place', 'game', 'climate', 'sun', 'star'];
+        // $tags = [];
+        // for($i = 1; $i <= rand(3, count($title)); $i++){
+        //     array_push($tags, $title[$i]);
+        // }
         $title = $this->faker->sentence();
         return [
             'code' => rand(100000, 999999),
@@ -31,6 +36,7 @@ class PostFactory extends Factory
             'category_id' => rand(1, 8),
             'author_id' => 1,
             'body' => '<p>' . $this->faker->paragraph() .'</p>',
+            // 'tags' => $tags,
             // 'image' => 'news/post/default/6tgxSWOEXBMd1WmSFkPRgFDCuyOzgux7tTpLDEAb.jpg',
         ];
     }
