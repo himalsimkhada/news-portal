@@ -55,6 +55,13 @@ class HomeController extends Controller {
         return view('nepali.details', compact('post', 'nepaliDate'));
     }
 
+    public function categoryPost($id){
+        $category = Post::with('category')->where('category_id', $id);
+        $posts = $category->get();
+        $name = $posts->first()->category->name;
+        return view('nepali.category', compact('posts', 'name'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

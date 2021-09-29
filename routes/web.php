@@ -25,6 +25,8 @@ Route::get('/', [HomeController::class, 'index']);
 
 // post details
 Route::get('/details/{id}', [HomeController::class, 'show'])->name('nepali.details');
+// category post
+Route::get('/category/{id}', [HomeController::class, 'categoryPost'])->name('nepali.category');
 
 // Resourcefull Routes
 Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => config('adminetic.middleware')], function () {

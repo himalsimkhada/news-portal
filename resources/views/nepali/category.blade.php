@@ -6,14 +6,21 @@
 
     <div class="container">
         <div class="redBg">
+           
             <div class="white newsTypeHeading d-flex justify-content-between">
                 <h3>
-                    <a href="antarastriya.php">अन्तर्राष्ट्रिय</a>
+                    <a href="antarastriya.php">{{ $name }}</a>
                 </h3>
             </div>
 
             <div class="row marSide">
+                @foreach ($posts as $post )
                 <div class="col-md-3 col-sm-4 categoryCard">
+                    <img src="{{ asset('storage/' .$post->image ) }}" alt="news" class="img-fluid">
+                    <h5><a href="{{ route('nepali.details', $post->id) }}">{{ $post->title }}</a></h5>
+                </div>
+                @endforeach
+                {{-- <div class="col-md-3 col-sm-4 categoryCard">
                     <img src="img/corona.jpg" alt="news" class="img-fluid">
                     <h5><a href="details.php">गुप्तचर प्रमुखलाई राति निवासमा भेटेकाे सुहाएन– भीम रावल, ‘रअ’ प्रमुखकाे
                             हिसाबले उनी आएका हाेइनन्- परराष्ट्रमन्त्री</a></h5>
@@ -80,7 +87,7 @@
                 <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
                     <img src="img\narayankagi-shrestha-web2020-08-17-02-09-22.jpg" alt="news" class="img-fluid">
                     <h5><a href="details.php">संसद् अधिवेशन चलाउनैपर्छ : दुर्गा पौडेल</a></h5>
-                </div>
+                </div> --}}
             </div>
 
             <nav aria-label="Page navigation example">
