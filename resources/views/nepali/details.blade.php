@@ -9,10 +9,10 @@
         nonce="m2AZ4pS8"></script>
     <div class="whiteBg text-center">
         <div class="container">
-            <img src="{{ asset('storage/'.$post->image) }}" alt="mainNewsImage"
+            <img src="{{ asset('storage/' . $post->image) }}" alt="mainNewsImage"
                 class="img-fluid mainNewsImage detailedImage text-center">
             <h1 class="mainNewsHeading text-center">
-                <a href="detail.php"></a>
+                <a href="">{{ $post->title }}</a>
             </h1>
             <hr>
 
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!--image of reporter-->
-                            <img src="{{ asset('storage/'.$post->image) }}" alt="Reporter" class="img-fluid reporterImage">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="Reporter" class="img-fluid reporterImage">
                         </div>
                         <!--image of reporter-->
                         <div class="col-md-8 reporterDetails">
@@ -71,7 +71,7 @@
                         <a href="#">अर्थ</a>
                     </div>
                     <p class="text-left newsText lineGap">
-                        {!! $post->body !!}
+                        {{ strip_tags($post->body) }}
                     </p>
                 </div>
             </div>
@@ -192,8 +192,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                        <img src="img/r7.gif" alt="ad" class="img-fluid">
-                    </a> -->
+                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                        </a> -->
                 </div>
                 <!--left side ends-->
 
@@ -289,4 +289,3 @@
     </div>
     </div>
 @endsection
-

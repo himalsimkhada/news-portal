@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::admineticAuth();
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/english', [HomeController::class, 'englishIndex'])->name('english.index');
-Route::get('/nepali', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
+// Route::get('/english', [HomeController::class, 'englishIndex'])->name('english.index');
+// Route::get('/nepali', [HomeController::class, 'nepaliIndex'])->name('nepali.index');
 
 // post details
 Route::get('/details/{id}', [HomeController::class, 'show'])->name('nepali.details');

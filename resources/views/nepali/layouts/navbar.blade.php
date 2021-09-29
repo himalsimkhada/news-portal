@@ -28,14 +28,14 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                     </div>
                     <div class="col-md-4">
                         <ul class="socialButtons">
-                            <li><a href="#"><img src="img/home-facebook.png" alt="facebook" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-facebook.png') }}" alt="facebook" class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="img/home-insta1.png" alt="instagram" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-insta1.png') }}" alt="instagram" class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="img/home-twitter1.png" alt="twitter" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/home-twitter1.png') }}" alt="twitter" class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="img/viber.png" alt="viber" class="img-fluid"></a></li>
-                            <li><a href="#"><img src="img/home-youtube1.png" alt="youtube" class="img-fluid"></a>
+                            <li><a href="#"><img src="{{ asset('img/viber.png') }}" alt="viber" class="img-fluid"></a></li>
+                            <li><a href="#"><img src="{{ asset('img/home-youtube1.png') }}" alt="youtube" class="img-fluid"></a>
                             </li>
                             <li>
                                 <div class="search-icon">
