@@ -12,7 +12,7 @@
             <img src="{{ asset('storage/'.$post->image) }}" alt="mainNewsImage"
                 class="img-fluid mainNewsImage detailedImage text-center">
             <h1 class="mainNewsHeading text-center">
-                <a href="detail.php"></a>
+                <a href="">{{ $post->title }}</a>
             </h1>
             <hr>
 
@@ -71,7 +71,7 @@
                         <a href="#">अर्थ</a>
                     </div>
                     <p class="text-left newsText lineGap">
-                        {{ $post->meta_description }}
+                        {!! $post->body !!}
                     </p>
                 </div>
             </div>

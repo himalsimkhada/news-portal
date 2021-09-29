@@ -6,7 +6,7 @@
     <div class="container">
         @forelse ($featured as $feature_news)
             <div class="white">
-                <h1 class="mainNewsHeading"><a href="">{{ $feature_news->title }}</a></h1>
+                <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $feature_news->id) }}">{{ $feature_news->title }}</a></h1>
                 <img src="{{ asset('storage/' . $feature_news->image) }}" alt="{{ $feature_news->title }}"
                     class="img-fluid mainNewsImage">
             </div>
@@ -103,7 +103,7 @@
                         <div class="sideNews d-flex white marZero">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="">{{ $news->title }}</a></h6>
+                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->id) }}">{{ substr($news->title, 0, 30) }}</a></h6>
                         </div>
                         {{-- @if ($key % 5 == 0) --}}
                     </div>
