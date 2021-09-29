@@ -21,7 +21,8 @@
                     <div class="row">
                         <div class="col-md-4">
                             <!--image of reporter-->
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="Reporter" class="img-fluid reporterImage">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="Reporter"
+                                class="img-fluid reporterImage">
                         </div>
                         <!--image of reporter-->
                         <div class="col-md-8 reporterDetails">
@@ -38,7 +39,7 @@
                                 allowtransparency="true"
                                 src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=333333&font_size=14&api=8101z3k348"
                                 width="165" height="22" style="margin-top:-2px;"></iframe> --}}
-                                {{ $nepaliDate}}
+                            {{ $nepaliDate }}
                         </div>
                     </div>
                     <!--date ends-->
@@ -193,8 +194,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                            <img src="img/r7.gif" alt="ad" class="img-fluid">
-                        </a> -->
+                                <img src="img/r7.gif" alt="ad" class="img-fluid">
+                            </a> -->
                 </div>
                 <!--left side ends-->
 
