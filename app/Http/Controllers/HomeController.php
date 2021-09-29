@@ -13,12 +13,14 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
-        $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
+        $all_news = Post::orderBy('created_at', 'DESC')->get();
+        $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->get();
         $posts = Post::where('status', 3)->first();
         $featured = Post::where('featured', 1)
-            ->orderBy('created_at', 'DESC')->limit(3)->get();
-        return view('nepali.home', compact('posts', 'featured', 'all_news', 'lifestyle_news'));
+            ->orderBy('created_at', 'DESC')->get();
+        $international_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->get();
+        $sports_news = Post::where('category_id', 3)->orderBy('created_at', 'DESC')->get();
+        return view('nepali.home', compact('posts', 'featured', 'all_news', 'lifestyle_news', 'international_news', 'sports_news'));
     }
 
     /**
