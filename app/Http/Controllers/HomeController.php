@@ -7,6 +7,7 @@ use App\Models\Admin\Post;
 use App\Models\Admin\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Pratiksh\Nepalidate\Facades\NepaliDate;
 
 class HomeController extends Controller {
     /**
@@ -15,12 +16,13 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $all_news = Post::orderBy('created_at', 'DESC')->limit(15)->get();
-        $lifestyle_news = Post::where('category_id', 2)->orderBy('created_at', 'DESC')->limit(15)->get();
-        $posts = Post::where('status', 3)->first();
-        $featured = Post::where('featured', 1)
-            ->orderBy('created_at', 'DESC')->limit(3)->get();
-        return view('nepali.home', compact('posts', 'featured', 'all_news', 'lifestyle_news'));
+        $all_news = Post::where('status', 3)->orderBy('created_at', 'DESC')->get();
+        $lifestyle_news = Post::where('category_id', 2)->where('status', 3)->orderBy('created_at', 'DESC')->get();
+        $featured = Post::where('featured', 1)->where('status', 3)
+            ->orderBy('created_at', 'DESC')->get();
+        $international_news = Post::where('category_id', 2)->where('status', 3)->orderBy('created_at', 'DESC')->get();
+        $sports_news = Post::where('category_id', 3)->where('status', 3)->orderBy('created_at', 'DESC')->get();
+        return view('nepali.home', compact('featured', 'all_news', 'lifestyle_news', 'international_news', 'sports_news'));
     }
 
     /**
@@ -65,7 +67,15 @@ class HomeController extends Controller {
         sort($postId);
         $postId = array_unique($postId);
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
-        return view('nepali.details', compact('post', 'relatedPost'));
+        $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
+        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
+    }
+
+    public function categoryPost($id){
+        $category = Post::with('category')->where('category_id', $id);
+        $posts = $category->get();
+        $name = $posts->first()->category->name;
+        return view('nepali.category', compact('posts', 'name'));
     }
 
     /**

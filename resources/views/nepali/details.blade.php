@@ -35,10 +35,11 @@
                     <div class="row">
                         <!--date starts-->
                         <div class="col-md-12 d-flex justify-content-center detailsDate">
-                            <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0"
+                            {{-- <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0"
                                 allowtransparency="true"
                                 src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=333333&font_size=14&api=8101z3k348"
-                                width="165" height="22" style="margin-top:-2px;"></iframe>
+                                width="165" height="22" style="margin-top:-2px;"></iframe> --}}
+                            {{ $nepaliDate }}
                         </div>
                     </div>
                     <!--date ends-->
@@ -194,8 +195,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                            <img src="img/r7.gif" alt="ad" class="img-fluid">
-                        </a> -->
+                                <img src="img/r7.gif" alt="ad" class="img-fluid">
+                            </a> -->
                 </div>
                 <!--left side ends-->
 
