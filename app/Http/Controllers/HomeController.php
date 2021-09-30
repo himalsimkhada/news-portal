@@ -7,7 +7,7 @@ use App\Models\Admin\Post;
 use App\Models\Admin\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Pratiksh\Nepalidate\Facades\NepaliDate;
+// use Pratiksh\Nepalidate\Facades\NepaliDate;
 
 class HomeController extends Controller {
     /**
@@ -67,7 +67,8 @@ class HomeController extends Controller {
         sort($postId);
         $postId = array_unique($postId);
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
-        $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
+        // $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
+        $nepaliDate = 0;
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
