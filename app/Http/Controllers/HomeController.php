@@ -82,6 +82,11 @@ class HomeController extends Controller {
         return view('nepali.category', compact('posts', 'name'));
     }
 
+    public function allPost($id){
+        $allPost = Post::whereIn('id', $id)->paginate(12);
+        return view('nepali.allPost', compact('allPost'));
+    }
+
     public function aboutUs() {
         return view('nepali.about-us');
     }
