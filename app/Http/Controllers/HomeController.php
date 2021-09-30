@@ -52,7 +52,20 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+
+        $post = Post::all();
+        // foreach($post as $post){
+        //     echo $post['id'] . "<br>";
+        //     $tag = Tag::limit(rand(3, 7))->get();
+        //     foreach($tag as $tag){
+        //         DB::table('post_tag')->insert([
+        //             'tag_id' => $tag['id'],
+        //             'post_id' => $post['id'],
+        //         ]);
+        //     }
+        // }
+        // die;
+
         $post = Post::with('author')->where('id', $id)->first();
         $tagId = [];
         foreach ($post->tags as $tag) {
@@ -68,6 +81,7 @@ class HomeController extends Controller {
         sort($postId);
         $postId = array_unique($postId);
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
+        // dd($relatedPost);
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
