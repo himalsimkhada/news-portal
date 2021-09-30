@@ -96,29 +96,27 @@
 
         <div class="container">
             <div class="row"></div>
-            @if (!isset($relatedPost))
-                <div class="greyBg">
-                    <!--samachra-->
+            <div class="greyBg">
+                <!--samachra-->
 
-                    <div class="white newsTypeHeading d-flex justify-content-between">
-                        <h3>
-                            <a href="#">रिलेटेड न्युज</a>
-                        </h3>
-                        <h3 class="pr-3">
-                            <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                        </h3>
-                    </div>
-                    <div class="row marSide">
-                        @foreach ($relatedPost as $value)
-                            <div class="col-md-3 col-sm-4 categoryCard">
-                                <img src="img/corona.jpg" alt="news" class="img-fluid">
-                                <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
-                            </div>
-                        @endforeach
-                    </div>
-
+                <div class="white newsTypeHeading d-flex justify-content-between">
+                    <h3>
+                        <a href="#">रिलेटेड न्युज</a>
+                    </h3>
+                    <h3 class="pr-3">
+                        <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                    </h3>
                 </div>
-            @endif
+                <div class="row marSide">
+                    @foreach ($relatedPost as $value)
+                        <div class="col-md-3 col-sm-4 categoryCard">
+                            <img src="img/corona.jpg" alt="news" class="img-fluid">
+                            <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
             <!--samachra ends-->
 
             <div class="row">
@@ -168,8 +166,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                            </a> -->
+                                                    <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                </a> -->
                 </div>
                 <!--left side ends-->
 
