@@ -8,7 +8,7 @@ use App\Models\Admin\Tag;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-// use Pratiksh\Nepalidate\Facades\NepaliDate;
+use Pratiksh\Nepalidate\Facades\NepaliDate;
 
 class HomeController extends Controller {
     /**
@@ -51,14 +51,16 @@ class HomeController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        //
-        $post = Post::with('author')->where('id', $id)->first();
+    public function show($slug) {
+
+        $post = Post::all();
+
+        $post = Post::with('author', 'tags')->where('slug', $slug)->first();
         $tagId = [];
         foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
         }
-        $tag = tag::whereIn('id', $tagId)->get();
+        $tag = Tag::whereIn('id', $tagId)->get();
         $postId = [];
         foreach ($tag as $tag) {
             foreach ($tag->posts as $post) {
@@ -68,8 +70,8 @@ class HomeController extends Controller {
         sort($postId);
         $postId = array_unique($postId);
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
-        // $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
-        $nepaliDate = 0;
+        // dd($relatedPost);
+        $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
