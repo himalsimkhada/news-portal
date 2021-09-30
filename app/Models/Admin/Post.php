@@ -80,10 +80,10 @@ class Post extends Model
     // Accessors
     public function getStatusAttribute($attribute)
     {
-        return [
+        return $attribute >= 3 ? [
             1 => 'Draft',
             2 => 'Pending',
             3 => 'Published'
-        ][$attribute];
+        ][$attribute] : 'N/A';
     }
 }

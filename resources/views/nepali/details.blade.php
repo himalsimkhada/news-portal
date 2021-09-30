@@ -108,12 +108,14 @@
                     </h3>
                 </div>
                 <div class="row marSide">
-                    @foreach ($relatedPost as $value)
+                    @forelse ($relatedPost as $value)
                         <div class="col-md-3 col-sm-4 categoryCard">
                             <img src="img/corona.jpg" alt="news" class="img-fluid">
                             <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
                         </div>
-                    @endforeach
+                    @empty
+                        No tags found for the post.
+                    @endforelse
                     {{-- <div class="col-md-3 col-sm-4 categoryCard">
                         <img src="img/-17.jpg" alt="news" class="img-fluid">
                         <h5><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h5>
@@ -196,8 +198,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                        </a> -->
+                                        <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                    </a> -->
                 </div>
                 <!--left side ends-->
 
