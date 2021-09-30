@@ -51,16 +51,16 @@ class HomeController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($slug) {
 
         $post = Post::all();
 
-        $post = Post::with('author', 'tags')->where('id', $id)->first();
+        $post = Post::with('author', 'tags')->where('slug', $slug)->first();
         $tagId = [];
         foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
         }
-        $tag = tag::whereIn('id', $tagId)->get();
+        $tag = Tag::whereIn('id', $tagId)->get();
         $postId = [];
         foreach ($tag as $tag) {
             foreach ($tag->posts as $post) {
