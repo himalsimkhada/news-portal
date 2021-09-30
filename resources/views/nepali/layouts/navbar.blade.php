@@ -97,7 +97,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                                 </div>
                             </li> --}}
                             @forelse ($nav as $items)
-                                <li class="nav-item"><a href="{{ route('nepali.category', $items->id) }}" class="nav-link">{{ $items->name }}</a>
+                                <li class="nav-item"><a href="{{ route('nepali.category', $items->slug) }}" class="nav-link">{{ $items->name }}</a>
                                 </li>
                             @empty
                                 No Categories Added

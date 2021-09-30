@@ -77,8 +77,8 @@ class HomeController extends Controller {
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
-    public function categoryPost($id) {
-        $category = Post::with('category')->where('category_id', $id);
+    public function categoryPost($slug) {
+        $category = Post::with('category')->where('slug', $slug);
         $posts = $category->paginate(12);
         $name = $category->first()->category->name;
         return view('nepali.category', compact('posts', 'name'));
