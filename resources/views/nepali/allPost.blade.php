@@ -14,10 +14,10 @@
             </div>
 
             <div class="row marSide">
-                @foreach ($posts as $post )
+                @foreach ($allPost as $post )
                 <div class="col-md-3 col-sm-4 categoryCard">
                     <img src="{{ asset('storage/' .$post->image ) }}" alt="news" class="img-fluid">
-                    <h5><a href="{{ route('nepali.details', $post->slug) }}">{{ $post->title }}</a></h5>
+                    <h5><a href="{{ route('nepali.details', $post->id) }}">{{ $post->title }}</a></h5>
                 </div>
                 @endforeach
 
