@@ -96,59 +96,29 @@
 
         <div class="container">
             <div class="row"></div>
-            <div class="greyBg">
-                <!--samachra-->
+            @if (!isset($relatedPost))
+                <div class="greyBg">
+                    <!--samachra-->
 
-                <div class="white newsTypeHeading d-flex justify-content-between">
-                    <h3>
-                        <a href="#">रिलेटेड न्युज</a>
-                    </h3>
-                    <h3 class="pr-3">
-                        <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                    </h3>
-                </div>
-                <div class="row marSide">
-                    @forelse ($relatedPost as $value)
-                        <div class="col-md-3 col-sm-4 categoryCard">
-                            <img src="img/corona.jpg" alt="news" class="img-fluid">
-                            <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
-                        </div>
-                    @empty
-                        No tags found for the post.
-                    @endforelse
-                    {{-- <div class="col-md-3 col-sm-4 categoryCard">
-                        <img src="img/-17.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">रेल्वे सुरक्षाको जिम्मा सशस्त्र प्रहरीलाई</a></h5>
+                    <div class="white newsTypeHeading d-flex justify-content-between">
+                        <h3>
+                            <a href="#">रिलेटेड न्युज</a>
+                        </h3>
+                        <h3 class="pr-3">
+                            <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                        </h3>
                     </div>
-                    <div class="col-md-3 col-sm-4 categoryCard">
-                        <img src="img/-30.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a></h5>
+                    <div class="row marSide">
+                        @foreach ($relatedPost as $value)
+                            <div class="col-md-3 col-sm-4 categoryCard">
+                                <img src="img/corona.jpg" alt="news" class="img-fluid">
+                                <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
-                        <img src="img\ghara-ma-vatataya-samathathha-ka-lga-vasata-sallha-2020-12-03.png" alt="news"
-                            class="img-fluid">
-                        <h5><a href="details.php">राजनीतिक भ्रष्टाचारको दुष्चक्र</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
-                        <img src="img\vac.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">स्वास्थ्य स्वयंसेविका : धेरै काम, थोरै सम्मान</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
-                        <img src="img\samaan2020-12-04-09-59-49.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">कोरोना महामारी र सरकार</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
-                        <img src="img\sayakata-rashhatara-savasathaya-paramakha-vashava-mahamaraka-anata-ka-sapana-thakhana-sara-garana-sakanahanachha-2020-12-06.jpg"
-                            alt="news" class="img-fluid">
-                        <h5><a href="details.php">किसान आन्दोलन मोदी सरकारको परीक्षाको घडी</a></h5>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6 categoryCard">
-                        <img src="img\prakashman.jpg" alt="news" class="img-fluid">
-                        <h5><a href="details.php">सत्ता एरोगेन्टको दुष्चक्रमा नेकपा</a></h5>
-                    </div> --}}
-                </div>
 
-            </div>
+                </div>
+            @endif
             <!--samachra ends-->
 
             <div class="row">
@@ -198,8 +168,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                        <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                    </a> -->
+                                                <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                            </a> -->
                 </div>
                 <!--left side ends-->
 
