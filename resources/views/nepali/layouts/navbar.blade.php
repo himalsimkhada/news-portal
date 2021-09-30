@@ -66,7 +66,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item"><a href="{{ route('index') }}" class="nav-link">गृहपृष्ठ</a>
+                            <li class="nav-item"><a href="{{ route('index') }}"
+                                    class="nav-link">गृहपृष्ठ</a>
                             </li>
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active" href="index.php" id="navbarDropdownMenuLink"
@@ -97,7 +98,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                                 </div>
                             </li> --}}
                             @forelse ($nav as $items)
-                                <li class="nav-item"><a href="{{ route('nepali.category', $items->id) }}" class="nav-link">{{ $items->name }}</a>
+                                <li class="nav-item"><a href="{{ route('nepali.category', $items->id) }}"
+                                        class="nav-link">{{ $items->name }}</a>
                                 </li>
                             @empty
                                 No Categories Added
@@ -113,7 +115,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                                 </div>
                             </li>
                         </ul>
-                        <a href="unicode.php" class="btn btn-danger unicode"><i class="fa fa-keyboard-o"></i>
+                        <a href="{{ route('nepali.unicode') }}" class="btn btn-danger unicode"><i
+                                class="fa fa-keyboard-o"></i>
                             युनिकोड</a>
                     </div>
 
