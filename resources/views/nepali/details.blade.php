@@ -69,8 +69,9 @@
                 </div>
                 <div class="col-md-8">
                     <div class="newsInDetails">
-                        <a href="#">अन्तर्राष्ट्रिय</a>
-                        <a href="#">अर्थ</a>
+                        @foreach ($post->tags as $tag)
+                            <a href="">{{ $tag->name }}</a>
+                        @endforeach
                     </div>
                     <p class="text-left newsText lineGap">
                         {{ strip_tags($post->body) }}
@@ -195,8 +196,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                <img src="img/r7.gif" alt="ad" class="img-fluid">
-                            </a> -->
+                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                        </a> -->
                 </div>
                 <!--left side ends-->
 

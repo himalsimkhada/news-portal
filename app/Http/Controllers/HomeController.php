@@ -54,19 +54,8 @@ class HomeController extends Controller {
     public function show($id) {
 
         $post = Post::all();
-        // foreach($post as $post){
-        //     echo $post['id'] . "<br>";
-        //     $tag = Tag::limit(rand(3, 7))->get();
-        //     foreach($tag as $tag){
-        //         DB::table('post_tag')->insert([
-        //             'tag_id' => $tag['id'],
-        //             'post_id' => $post['id'],
-        //         ]);
-        //     }
-        // }
-        // die;
 
-        $post = Post::with('author')->where('id', $id)->first();
+        $post = Post::with('author', 'tags')->where('id', $id)->first();
         $tagId = [];
         foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
