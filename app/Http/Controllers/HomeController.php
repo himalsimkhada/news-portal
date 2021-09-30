@@ -71,7 +71,7 @@ class HomeController extends Controller {
         sort($postId);
         $postId = array_unique($postId);
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
-        // dd($relatedPost);
+        // dd($relatedPost->isEmpty());
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
         // dd($post);
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
