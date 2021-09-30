@@ -101,11 +101,13 @@
             <hr class="footerLine">
             <div class="row">
                 <div class="col-md-8 text-left copy">
-                    <p>&#169; न्यूज़ पोर्टल,2020 &#174; All Rights Reserved. <a href="contact-us-two.php">&nbsp;
-                            &nbsp;सम्पर्क</a>&nbsp;|&nbsp;<a href="about-us-two.php">हाम्रो बारे</a>&nbsp; |&nbsp;<a
-                            href="calendar-two.php">पात्रो</a>&nbsp;|&nbsp; <a
-                            href="unicode-two.php">युनिकोड</a>&nbsp;|&nbsp; <a
-                            href="forex-two.php">Forex</a>&nbsp;|&nbsp; <a href="goldandsilver-two.php">Gold &
+                    <p>&#169; न्यूज़ पोर्टल,2020 &#174; All Rights Reserved. <a
+                            href="{{ route('nepali.view.contact-us') }}">&nbsp;
+                            &nbsp;सम्पर्क</a>&nbsp;|&nbsp;<a href="{{ route('nepali.about-us') }}">हाम्रो
+                            बारे</a>&nbsp; |&nbsp;<a href="{{ route('nepali.calender') }}">पात्रो</a>&nbsp;|&nbsp; <a
+                            href="{{ route('nepali.unicode') }}">युनिकोड</a>&nbsp;|&nbsp; <a
+                            href="{{ route('nepali.forex') }}">Forex</a>&nbsp;|&nbsp; <a
+                            href="{{ route('nepali.gold-silver') }}">Gold &
                             Silver</a>&nbsp;|&nbsp;</p>
                 </div>
                 <div class="col-md-4 copy bottomRight">
