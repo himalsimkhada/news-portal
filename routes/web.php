@@ -27,6 +27,21 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/details/{id}', [HomeController::class, 'show'])->name('nepali.details');
 // category post
 Route::get('/category/{id}', [HomeController::class, 'categoryPost'])->name('nepali.category');
+//about us
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('nepali.about-us');
+
+//calender
+Route::view('/calender', 'nepali.calender')->name('nepali.calender');
+//unicode
+Route::view('/unicode', 'nepali.unicode')->name('nepali.unicode');
+//forex
+Route::view('/forex', 'nepali.forex')->name('nepali.forex');
+//gold and silver
+Route::view('/gold-silver', 'nepali.goldandsilver')->name('nepali.gold-silver');
+
+//contact-us
+Route::get('/contactus', [HomeController::class, 'contactUsView'])->name('nepali.view.contact-us');
+Route::post('/contactus/submit', [HomeController::class, 'contactUsForm'])->name('nepali.submit.contactus');
 
 // Resourcefull Routes
 Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => config('adminetic.middleware')], function () {

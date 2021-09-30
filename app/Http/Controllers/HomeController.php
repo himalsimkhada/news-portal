@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\Category;
 use App\Models\Admin\Post;
 use App\Models\Admin\Tag;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Pratiksh\Nepalidate\Facades\NepaliDate;
@@ -54,13 +55,13 @@ class HomeController extends Controller {
         //
         $post = Post::with('author')->where('id', $id)->first();
         $tagId = [];
-        foreach($post->tags as $tag){
+        foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
         }
         $tag = tag::whereIn('id', $tagId)->get();
         $postId = [];
-        foreach($tag as $tag){
-            foreach($tag->posts as $post){
+        foreach ($tag as $tag) {
+            foreach ($tag->posts as $post) {
                 $postId[] = $post->id;
             }
         }
@@ -71,11 +72,40 @@ class HomeController extends Controller {
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
-    public function categoryPost($id){
+    public function categoryPost($id) {
         $category = Post::with('category')->where('category_id', $id);
         $posts = $category->get();
         $name = $posts->first()->category->name;
         return view('nepali.category', compact('posts', 'name'));
+    }
+
+    public function aboutUs() {
+        return view('nepali.about-us');
+    }
+
+    public function contactUsView() {
+        return view('nepali.contact-us');
+    }
+
+    public function contactUsForm(Request $request) {
+        $rule = [
+            'name' => 'required|max:255',
+            'phone' => 'required|numeric',
+            'email' => 'required|email',
+            'message' => 'required|max:255'
+        ];
+        $customMessage = [
+            'name.required' => 'Please enter your name',
+            'phone.required' => 'Phone number is required',
+            'email.required' => 'Email address is required',
+            'email.email' => 'Email field must be an valid email',
+            'message.required' => 'Please include some message',
+        ];
+        $data = $this->validate($request, $rule, $customMessage);
+
+        $contactus = ContactUs::create($data);
+
+        return redirect()->back();
     }
 
     /**
