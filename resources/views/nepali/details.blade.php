@@ -111,8 +111,8 @@
                     <div class="row marSide">
                         @foreach ($relatedPost as $value)
                             <div class="col-md-3 col-sm-4 categoryCard">
-                                <img src="img/corona.jpg" alt="news" class="img-fluid">
-                                <h5><a href="{{ route('nepali.details', $value->id) }}">{{ $value->title }}</a></h5>
+                                <img src="{{ asset('storage/'.$value->image) }}" alt="news" class="img-fluid">
+                                <h5><a href="{{ route('nepali.details', $value->slug) }}">{{ $value->title }}</a></h5>
                             </div>
                         @endforeach
                     </div>
