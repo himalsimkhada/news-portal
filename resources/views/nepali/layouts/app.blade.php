@@ -1,3 +1,7 @@
+@php
+$nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
+@endphp
+
 <!doctype html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
 </head>
 
 <body>
-    @include('nepali.layouts.navbar')
+    @include('nepali.layouts.navbar', ['nav' => $nav])
     @yield('content')
 
     <footer>
@@ -61,31 +65,12 @@
                 </div>
                 <div class="col-md-4">
                     <ul class="footerNav">
-                        <li class="">
-                            <a href=" indexsec.php">गृहपृष्ठ <span
-                                class="sr-only">(current)</span></a>
-                        </li>
-                        <li>
-                            <a href="antarastriya-second.php">अन्तर्राष्ट्रिय</a>
-                        </li>
-                        <li>
-                            <a href="#">जीवनशैली</a>
-                        </li>
-                        <li>
-                            <a href="#">सूचना प्रविधि</a>
-                        </li>
-                        <li>
-                            <a href="#">मनोरन्जन</a>
-                        </li>
-                        <li>
-                            <a href="#">खेलकुद</a>
-                        </li>
-                        <li>
-                            <a href="#">अर्थ</a>
-                        </li>
-                        <li>
-                            <a href="#">अन्य</a>
-                        </li>
+                        @foreach ($nav as $item)
+                            <li class="">
+                            <a href="{{ route('nepali.category', $item->id) }}">{{ $item->name }}<span
+                                    class="sr-only">(current)</span></a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="col-md-4">

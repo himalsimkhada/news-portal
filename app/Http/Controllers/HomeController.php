@@ -105,11 +105,12 @@ class HomeController extends Controller {
             'message' => 'required|max:255'
         ];
         $customMessage = [
-            'name.required' => 'Please enter your name',
-            'phone.required' => 'Phone number is required',
-            'email.required' => 'Email address is required',
-            'email.email' => 'Email field must be an valid email',
-            'message.required' => 'Please include some message',
+            'name.required' => 'कृपया तपाइँको नाम प्रविष्ट गर्नुहोस्।',
+            'phone.required' => 'कृपया आफ्नो फोन नम्बर प्रविष्ट गर्नुहोस्।',
+            'phone.numeric' => 'फोन नम्बर नम्बर हुनुपर्छ।',
+            'email.required' => 'कृपया तपाइँको ईमेल ठेगाना प्रविष्ट गर्नुहोस्।',
+            'email.email' => 'ईमेल एक मान्य ईमेल हुनु पर्छ।',
+            'message.required' => 'कृपया तपाइँको सन्देश प्रविष्ट गर्नुहोस्।',
         ];
         $data = $this->validate($request, $rule, $customMessage);
 

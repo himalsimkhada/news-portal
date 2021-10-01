@@ -1,6 +1,6 @@
 @extends('nepali.layouts.app')
 
-@section('title', 'Details Page')
+@section('title', 'पूर्ण विवरण')
 
 @section('content')
 
@@ -102,7 +102,7 @@
 
                     <div class="white newsTypeHeading d-flex justify-content-between">
                         <h3>
-                            <a href="#">रिलेटेड न्युज</a>
+                            <a href="#">सम्बन्धित समाचार</a>
                         </h3>
                         <h3 class="pr-3">
                             <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
@@ -222,7 +222,7 @@
                 <div class="col-md-4 mb-2 text-center">
                     <!--left side-->
                     <a href="#">
-                        <img src="img/r7.gif" alt="ad" class="img-fluid mb-3">
+                        <img src="{{ asset('img/r7.gif') }}" alt="ad" class="img-fluid mb-3">
                     </a>
                     <div class="redBgSmall mt-3">
                         <!--news part of left-->

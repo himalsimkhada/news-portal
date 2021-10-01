@@ -1,5 +1,7 @@
 @extends('nepali.layouts.app')
 
+@section('title', 'सम्पर्क')
+
 @section('content')
     <div class="whiteBg">
         <div class="container">
@@ -48,16 +50,16 @@
                     @endif
                     <form action="{{ route('nepali.submit.contactus') }}" method="post">
                         @csrf
-                        <h5>Name</h5>
+                        <h5>नाम</h5>
                         <input type="text" placeholder="Name" name="name">
-                        <h5>Phone</h5>
+                        <h5>सम्पर्क</h5>
                         <input type="number" placeholder="Phone" name="phone">
-                        <h5>Email</h5>
+                        <h5>ईमेल</h5>
                         <input type="email" placeholder="abc@xyz.com" name="email">
-                        <h5>Message</h5>
+                        <h5>सन्देश</h5>
                         <textarea rows="4" cols="50" placeholder="Please Enter Your Message Here" name="message"></textarea>
 
-                        <button type="submit" class="btn submit">Submit</button>
+                        <button type="submit" class="btn submit">पेश गर्नुहोस्</button>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('nepali.layouts.app')
 
-@section('title', 'Home Page')
+@section('title', 'गृह पृष्ठ')
 
 @section('content')
     <div class="container">

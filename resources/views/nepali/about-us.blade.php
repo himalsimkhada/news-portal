@@ -1,5 +1,7 @@
 @extends('nepali.layouts.app')
 
+@section('title', 'हाम्रो बारे')
+
 @section('content')
 <div class="whiteBg">
     <div class="container">
