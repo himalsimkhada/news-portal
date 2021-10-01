@@ -18,7 +18,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
     <link rel="icon" href="{{ asset('img\vrlogo.jpg') }}" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title>न्यूज़ पोर्टल-युनिकोड @yield('title')</title>
+    <title>न्यूज़ पोर्टल - @yield('title')</title>
 </head>
 
 <body>
