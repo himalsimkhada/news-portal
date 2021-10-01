@@ -1,5 +1,7 @@
 @extends('nepali.layouts.app')
 
+@section('title', 'पात्रो')
+
 @section('content')
     <div class="container">
 

@@ -1,5 +1,7 @@
 @extends('nepali.layouts.app')
 
+@section('title', 'युनिकोड')
+
 @section('content')
 
     <div class="whiteBg">
