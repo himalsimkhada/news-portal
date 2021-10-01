@@ -102,10 +102,10 @@
 
                     <div class="white newsTypeHeading d-flex justify-content-between">
                         <h3>
-                            <a href="#">सम्बन्धित समाचार</a>
+                            <a href="{{ route('nepali.related-post', $post->slug) }}">सम्बन्धित समाचार</a>
                         </h3>
                         <h3 class="pr-3">
-                            <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            <a href="{{ route('nepali.related-post', $post->slug) }}">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                         </h3>
                     </div>
                     <div class="row marSide">
