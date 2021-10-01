@@ -30,8 +30,7 @@ Route::get('/related-post/{slug}', [HomeController::class, 'relatedPost'])->name
 // for getting tag wise posts
 Route::get('/tag-post/{tag}', [HomeController::class, 'tagPost'])->name('nepali.tag-post');
 //about us
-Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('nepali.about-us');
-
+Route::view('/about-us', 'nepali.about-us')->name('nepali.about-us');
 //calender
 Route::view('/calender', 'nepali.calender')->name('nepali.calender');
 //unicode
