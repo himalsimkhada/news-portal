@@ -112,6 +112,12 @@ class HomeController extends Controller
         return view('nepali.related-post', compact('post', 'relatedPost'));
     }
 
+    public function tagPost($tag)
+    {
+        $tag = Tag::with('posts')->where('name', $tag)->first();
+        $post = $tag->posts;
+        return view('nepali.tag-post', compact('post', 'tag'));
+    }
     public function aboutUs()
     {
         return view('nepali.about-us');

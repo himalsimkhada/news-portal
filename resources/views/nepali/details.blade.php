@@ -70,7 +70,7 @@
                 <div class="col-md-8">
                     <div class="newsInDetails">
                         @foreach ($post->tags as $tag)
-                            <a href="">{{ $tag->name }}</a>
+                            <a href="{{ route('nepali.tag-post', $tag->name) }}">{{ $tag->name }}</a>
                         @endforeach
                     </div>
                     <p class="text-left newsText lineGap">
