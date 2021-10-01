@@ -1,12 +1,12 @@
 @extends('nepali.layouts.app')
 
-@section('title', 'Details Page')
+@section('title', 'सबै समाचार')
 
 @section('content')
 
     <div class="container">
         <div class="redBg">
-           
+
             <div class="white newsTypeHeading d-flex justify-content-between">
                 <h3>
                     <a href="antarastriya.php">{{ $name }}</a>

@@ -1,7 +1,3 @@
-@php
-$nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
-@endphp
-
 <div class="white">
     <header class="site-header">
         <div class="container">

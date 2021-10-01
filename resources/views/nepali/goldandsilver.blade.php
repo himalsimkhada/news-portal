@@ -1,5 +1,7 @@
 @extends('nepali.layouts.app')
 
+@section('title', 'सुन/चाँदी मूल्य')
+
 @section('content')
     <div class="container">
 
