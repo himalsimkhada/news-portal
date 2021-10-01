@@ -26,7 +26,7 @@ Route::get('/news/{slug}', [HomeController::class, 'show'])->name('nepali.detail
 // category post
 Route::get('/category/{id}', [HomeController::class, 'categoryPost'])->name('nepali.category');
 // for getting related posts
-Route::get('/allPost/{id}', [HomeController::class, 'allPost'])->name('nepali.allPost');
+Route::get('/related-post/{slug}', [HomeController::class, 'relatedPost'])->name('nepali.related-post');
 //about us
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('nepali.about-us');
 
