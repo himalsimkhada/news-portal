@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\ApprovalRequests;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ReorderController;
+use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,4 +57,7 @@ Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => c
     //Approval Requests Admin route
     Route::get('/portal/requests', [ApprovalRequests::class, 'index'])->name('requests.index');
     Route::get('/portal/request/accept/{id}', [ApprovalRequests::class, 'update'])->name('requests.update');
+
+    Route::get('/site-settings/index', [SiteSettingController::class, 'index'])->name('site-setting.index');
+    Route::post('/site-settings/update', [SiteSettingController::class, 'update'])->name('site-setting.update');
 });

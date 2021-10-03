@@ -1,5 +1,6 @@
 @php
 $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
+$setting = \App\Models\SiteSetting::where('id', 1)->first();
 @endphp
 
 <!doctype html>
@@ -18,11 +19,11 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
     <link rel="icon" href="{{ asset('img\vrlogo.jpg') }}" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title>न्यूज़ पोर्टल - @yield('title')</title>
+    <title>{{ $setting->brand_name ?? 'न्यूज़ पोर्टल' }} - @yield('title')</title>
 </head>
 
 <body>
-    @include('nepali.layouts.navbar', ['nav' => $nav])
+    @include('nepali.layouts.navbar', ['nav' => $nav, 'setting' => $setting])
     <div class="container">
         @include('nepali.layouts._message')
     </div>
