@@ -10,15 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Pratiksh\Nepalidate\Facades\NepaliDate;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $all_news = Post::where('status', 3)->orderBy('created_at', 'DESC')->get();
         $lifestyle_news = Post::where('category_id', 2)->where('status', 3)->orderBy('created_at', 'DESC')->get();
         $featured = Post::where('featured', 1)->where('status', 3)
@@ -33,8 +31,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -44,8 +41,7 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -55,8 +51,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
-    {
+    public function show($slug) {
 
         // $posts = Post::all();
 
@@ -82,16 +77,14 @@ class HomeController extends Controller
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
     }
 
-    public function categoryPost($id)
-    {
+    public function categoryPost($id) {
         $category = Post::with('category')->where('category_id', $id);
         $posts = $category->paginate(12);
         $name = $category->first()->category->name;
         return view('nepali.category', compact('posts', 'name'));
     }
 
-    public function relatedPost($slug)
-    {
+    public function relatedPost($slug) {
 
         $post = Post::with('author', 'tags')->where('slug', $slug)->first();
         // dd($post);
@@ -112,24 +105,20 @@ class HomeController extends Controller
         return view('nepali.related-post', compact('post', 'relatedPost'));
     }
 
-    public function tagPost($tag)
-    {
+    public function tagPost($tag) {
         $tag = Tag::with('posts')->where('name', $tag)->first();
         $post = $tag->posts;
         return view('nepali.tag-post', compact('post', 'tag'));
     }
-    public function aboutUs()
-    {
+    public function aboutUs() {
         return view('nepali.about-us');
     }
 
-    public function contactUsView()
-    {
+    public function contactUsView() {
         return view('nepali.contact-us');
     }
 
-    public function contactUsForm(Request $request)
-    {
+    public function contactUsForm(Request $request) {
         $rule = [
             'name' => 'required|max:255',
             'phone' => 'required|numeric',
@@ -148,7 +137,11 @@ class HomeController extends Controller
 
         $contactus = ContactUs::create($data);
 
-        return redirect()->back();
+        if ($contactus) {
+            return redirect()->back()->with('info_message', 'Message delivered successfully.');
+        } else {
+            return redirect()->back()->with('error_message', 'Error!');
+        }
     }
 
     /**
@@ -157,8 +150,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -169,8 +161,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -180,8 +171,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }
