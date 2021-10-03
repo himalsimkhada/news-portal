@@ -140,37 +140,23 @@
                         </div>
                         <!--news type heading ending-->
                         <!--left side news cards starts here-->
-                        <div class="sideNews d-flex white">
-                            <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए,
-                                    १०९६ थपिए</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white">
-                            <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                    विरुद्धको खोप ल्याउने तयारी</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white sideNewsMarBot">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
-                        <div class="sideNews d-flex white sideNewsMarBot">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
-                        <div class="sideNews d-flex white sideNewsMarBot">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
+                        @foreach ($least_viewed_post as $key => $news)
+                            <div class="sideNews d-flex white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
+                            </div>
+                            @if ($key == 4)
+                            @break
+                        @endif
+                        @endforeach
                         <!--left side news cards ends here-->
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                                        </a> -->
+                                                                                        <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                                                    </a> -->
                 </div>
                 <!--left side ends-->
 
@@ -189,31 +175,17 @@
                         </div>
                         <!--news type heading ending-->
                         <!--middle side news cards starts here-->
-                        <div class="sideNews d-flex white">
-                            <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए,
-                                    १०९६ थपिए</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white">
-                            <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                    विरुद्धको खोप ल्याउने तयारी</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
-                        <div class="sideNews d-flex white">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
-                        <div class="sideNews d-flex white sideNewsMarBot">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै ओली</a>
-                            </h6>
-                        </div>
+                        @foreach ($most_viewed_post as $key => $news)
+                            <div class="sideNews d-flex white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
+                            </div>
+                            @if ($key == 4)
+                            @break
+                        @endif
+                        @endforeach
                         <!--middle side news cards ends here-->
                     </div>
                     <!--news part of middle ends-->
@@ -238,21 +210,17 @@
                         </div>
                         <!--news type heading ending-->
                         <!--left side news cards starts here-->
-                        <div class="sideNews d-flex white">
-                            <img src="img/test.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">पछिल्लो २४ घन्टामा १७ सय ५२ संक्रमित निको भए,
-                                    १०९६ थपिए</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white">
-                            <img src="img/vac.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">२० प्रतिशत नागरिकलाई पुग्ने गरी कोभिड– १९
-                                    विरुद्धको</a></h6>
-                        </div>
-                        <div class="sideNews d-flex white sideNewsMarBot">
-                            <img src="img/cov.jpg" alt="side1" class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="details.php">प्रक्रिया बढाउँदै नेकपा, प्रतिवाद गर्दै
-                                    ओली</a></h6>
-                        </div>
+                        @foreach ($randomRow as $key => $news)
+                            <div class="sideNews d-flex white">
+                                <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
+                                    class="img-fluid sideNewsImage">
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
+                            </div>
+                            @if ($key == 2)
+                            @break
+                        @endif
+                        @endforeach
                         <!--left side news cards ends here-->
                     </div>
                     <!--news part of left ends-->

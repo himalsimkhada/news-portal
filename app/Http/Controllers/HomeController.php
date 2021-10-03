@@ -56,6 +56,8 @@ class HomeController extends Controller {
         // $posts = Post::all();
 
         $post = Post::with('author', 'tags')->where('slug', $slug)->first();
+        $most_viewed_post = Post::orderByViews()->get();
+        $least_viewed_post = Post::orderByViews('asc')->get();
         // dd($post);
         $expiresAt = now()->addHours(5);
         views($post)->cooldown($expiresAt)->record();
@@ -75,8 +77,8 @@ class HomeController extends Controller {
         $relatedPost = Post::whereIn('id', $postId)->limit(8)->get();
         // dd($relatedPost->isEmpty());
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
-        // dd($post);
-        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost'));
+        $randomRow = Post::inRandomOrder()->get();
+        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow'));
     }
 
     public function categoryPost($id) {
