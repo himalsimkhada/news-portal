@@ -13,7 +13,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-
 class Post extends Model implements Viewable
 {
     use LogsActivity, Sluggable, HasFactory, InteractsWithViews;

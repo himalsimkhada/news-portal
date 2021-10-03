@@ -100,7 +100,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a
-                                    href="{{ route('nepali.details', $news->slug) }}">{{$news->title }}</a>
+                                    href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                             </h6>
                         </div>
                     </div>
@@ -129,7 +129,8 @@
                         <div class="sideNews d-flex white">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
+                            <h6 class="sideNewsTopic"><a
+                                    href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
                         </div>
                     </div>
                     @if ($key == 14)
@@ -214,7 +215,8 @@
                             <div class="sideNews d-flex white marZero">
                                 <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                     class="img-fluid sideNewsImage">
-                                <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
+                                <h6 class="sideNewsTopic"><a
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                                 </h6>
                             </div>
                         @endif
@@ -351,12 +353,12 @@
                 <div class="col-md-6 d-flex">
                     <div class="row leftSub">
                         <div class="col-md-8 subscribeForm">
-                            <form action="post">
-                                <input type="text" placeholder="E-mail">
+                            <form action="" method="POST">
+                                <input type="email" placeholder="E-mail" name="subs-email">
                             </form>
                         </div>
                         <div class="col-md-4 subscribe">
-                            <button>Subscribe</button>
+                            <button type="button">Subscribe</button>
                         </div>
                     </div>
 
