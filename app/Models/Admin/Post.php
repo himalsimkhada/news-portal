@@ -10,10 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Activitylog\Traits\LogsActivity;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
 
-class Post extends Model
+class Post extends Model implements Viewable
 {
-    use LogsActivity, Sluggable, HasFactory;
+    use LogsActivity, Sluggable, HasFactory, InteractsWithViews;
 
 
     protected $guarded = [];
