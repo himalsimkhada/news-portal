@@ -20,7 +20,7 @@
     </div>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
-        <h1 class="text-center">Welcome To Dashboard</h1>
+        <h1 class="text-center">Welcome To {{ setting('site_name') }}</h1>
     </div>
     <!-- Container-fluid Ends-->
 @endsection

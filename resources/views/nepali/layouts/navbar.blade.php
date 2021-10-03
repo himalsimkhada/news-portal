@@ -4,7 +4,8 @@
             <div class="row">
                 <div class="col-md-12 headerLogoTwo">
                     <a href="/">
-                        <img src="{{ asset('img/logopng.png') }}" alt="logo" class="img-fluid">
+                        <img src="{{ asset('storage/' . setting('site_logo')) ?? asset('img/logopng.png') }}"
+                            alt="logo" class="img-fluid">
                     </a>
                 </div>
             </div>
@@ -65,34 +66,6 @@
                             <li class="nav-item"><a href="{{ route('index') }}"
                                     class="nav-link">गृहपृष्ठ</a>
                             </li>
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle active" href="index.php" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    गृहपृष्ठ
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="index.php">Page 1</a>
-                                    <a class="dropdown-item" href="indexsec.php">Page 2</a>
-                                    <a class="dropdown-item" href="indexenglish.php">English 1</a>
-                                    <a class="dropdown-item" href="indexenglishtwo.php">English 2</a>
-
-                                </div>
-                            </li> --}}
-                            {{-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    प्रदेश
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">प्रदेश 1</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 2</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 3</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 4</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 5</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 6</a>
-                                    <a class="dropdown-item" href="#">प्रदेश 7</a>
-                                </div>
-                            </li> --}}
                             @forelse ($nav as $items)
                                 <li class="nav-item"><a href="{{ route('nepali.category', $items->id) }}"
                                         class="nav-link">{{ $items->name }}</a>

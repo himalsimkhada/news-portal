@@ -1,6 +1,5 @@
 @php
 $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
-$setting = \App\Models\SiteSetting::where('id', 1)->first();
 @endphp
 
 <!doctype html>
@@ -16,14 +15,14 @@ $setting = \App\Models\SiteSetting::where('id', 1)->first();
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="icon" href="{{ asset('img\vrlogo.jpg') }}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('storage/' . setting('site_fav_icon')) ?? asset('img\vrlogo.jpg') }}" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <title>{{ $setting->brand_name ?? 'न्यूज़ पोर्टल' }} - @yield('title')</title>
+    <title>{{ setting('site_name') ?? 'न्यूज़ पोर्टल' }} - @yield('title')</title>
 </head>
 
 <body>
-    @include('nepali.layouts.navbar', ['nav' => $nav, 'setting' => $setting])
+    @include('nepali.layouts.navbar', ['nav' => $nav])
     <div class="container">
         @include('nepali.layouts._message')
     </div>
@@ -34,7 +33,7 @@ $setting = \App\Models\SiteSetting::where('id', 1)->first();
             <div class="row text-left">
                 <div class="col-md-4">
                     <a href="indexsec.php">
-                        <img src="{{ asset('img/logo.png') }}" alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
+                        <img src="{{ asset('storage/' . setting('site_logo')) ?? asset('img/logo.png') }}" alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
                     </a>
                     <div class="footerContact">
                         <h5 class="footerPageName pt-3 pb-4">न्यूज़ पोर्टल</h5>
