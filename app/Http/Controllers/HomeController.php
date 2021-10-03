@@ -115,7 +115,7 @@ class HomeController extends Controller
     public function tagPost($tag)
     {
         $tag = Tag::with('posts')->where('name', $tag)->first();
-        $post = $tag->posts;
+        $post = $tag->posts()->paginate(12);
         return view('nepali.tag-post', compact('post', 'tag'));
     }
     public function aboutUs()
