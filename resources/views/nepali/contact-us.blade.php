@@ -51,13 +51,13 @@
                     <form action="{{ route('nepali.submit.contactus') }}" method="post">
                         @csrf
                         <h5>नाम</h5>
-                        <input type="text" placeholder="Name" name="name">
+                        <input type="text" placeholder="यहाँ तपाइँको नाम प्रविष्ट गर्नुहोस्।" name="name">
                         <h5>सम्पर्क</h5>
-                        <input type="number" placeholder="Phone" name="phone">
+                        <input type="number" placeholder="यहाँ तपाइँको फोन नम्बर प्रविष्ट गर्नुहोस्।" name="phone">
                         <h5>ईमेल</h5>
-                        <input type="email" placeholder="abc@xyz.com" name="email">
+                        <input type="email" placeholder="यहाँ तपाइँको ईमेल प्रविष्ट गर्नुहोस्।" name="email">
                         <h5>सन्देश</h5>
-                        <textarea rows="4" cols="50" placeholder="Please Enter Your Message Here" name="message"></textarea>
+                        <textarea rows="4" cols="50" placeholder="तपाइँको सन्देशहरु यहाँ प्रविष्ट गर्नुहोस्।" name="message"></textarea>
 
                         <button type="submit" class="btn submit">पेश गर्नुहोस्</button>
                     </form>
