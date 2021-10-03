@@ -46,8 +46,8 @@
                     <div class="row">
                         <!--counter and share-->
                         <div class="col-md-6 borderRight">
-                            <div class="counter text-left">20</div>
-                            <div class="counterText text-left">Total Shares</div>
+                            <div class="counter text-left">{{ views($post)->count() }}</div>
+                            <div class="counterText text-left">Total Views</div>
                         </div>
                         <div class="col-md-6">
                             <ul class="share">
@@ -105,13 +105,14 @@
                             <a href="{{ route('nepali.related-post', $post->slug) }}">सम्बन्धित समाचार</a>
                         </h3>
                         <h3 class="pr-3">
-                            <a href="{{ route('nepali.related-post', $post->slug) }}">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            <a href="{{ route('nepali.related-post', $post->slug) }}">सबै <i
+                                    class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
                         </h3>
                     </div>
                     <div class="row marSide">
                         @foreach ($relatedPost as $value)
                             <div class="col-md-3 col-sm-4 categoryCard">
-                                <img src="{{ asset('storage/'.$value->image) }}" alt="news" class="img-fluid">
+                                <img src="{{ asset('storage/' . $value->image) }}" alt="news" class="img-fluid">
                                 <h5><a href="{{ route('nepali.details', $value->slug) }}">{{ $value->title }}</a></h5>
                             </div>
                         @endforeach
@@ -168,8 +169,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                        <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                                    </a> -->
+                                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                        </a> -->
                 </div>
                 <!--left side ends-->
 

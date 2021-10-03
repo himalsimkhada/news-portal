@@ -57,6 +57,8 @@ class HomeController extends Controller {
 
         $post = Post::with('author', 'tags')->where('slug', $slug)->first();
         // dd($post);
+        $expiresAt = now()->addHours(5);
+        views($post)->cooldown($expiresAt)->record();
         $tagId = [];
         foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
@@ -107,7 +109,7 @@ class HomeController extends Controller {
 
     public function tagPost($tag) {
         $tag = Tag::with('posts')->where('name', $tag)->first();
-        $post = $tag->posts;
+        $post = $tag->posts()->paginate(12);
         return view('nepali.tag-post', compact('post', 'tag'));
     }
     public function aboutUs() {

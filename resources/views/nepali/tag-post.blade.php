@@ -26,7 +26,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
-                        {{-- {{ $post->links() }} --}}
+                        {{ $post->links() }}
                     </li>
                 </ul>
             </nav>
