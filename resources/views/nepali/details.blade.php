@@ -46,7 +46,7 @@
                     <div class="row">
                         <!--counter and share-->
                         <div class="col-md-6 borderRight">
-                            <div class="counter text-left">{{ views('App\Models\Admin\Post')->count() }}</div>
+                            <div class="counter text-left">{{ views('App\Models\Admin\Post')->record() }}</div>
                             <div class="counterText text-left">Total Shares</div>
                         </div>
                         <div class="col-md-6">
