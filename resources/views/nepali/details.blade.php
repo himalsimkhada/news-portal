@@ -46,7 +46,9 @@
                     <div class="row">
                         <!--counter and share-->
                         <div class="col-md-6 borderRight">
-                            <div class="counter text-left">{{ views($post)->count() }}</div>
+                            <div class="counter text-left">
+                                {{ views($post)->count() }}
+                            </div>
                             <div class="counterText text-left">Total Views</div>
                         </div>
                         <div class="col-md-6">
@@ -155,8 +157,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                                                        <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                                                                    </a> -->
+                                                                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                                                        </a> -->
                 </div>
                 <!--left side ends-->
 

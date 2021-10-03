@@ -59,8 +59,7 @@ class HomeController extends Controller {
         $most_viewed_post = Post::orderByViews()->get();
         $least_viewed_post = Post::orderByViews('asc')->get();
         // dd($post);
-        $expiresAt = now()->addHours(5);
-        views($post)->cooldown($expiresAt)->record();
+        views($post)->record();
         $tagId = [];
         foreach ($post->tags as $tag) {
             $tagId[] = $tag['id'];
