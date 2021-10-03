@@ -1,6 +1,6 @@
 @extends('nepali.layouts.app')
 
-@section('title', 'पूर्ण विवरण')
+@section('title', $post->title)
 
 @section('content')
 

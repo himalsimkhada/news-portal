@@ -23,6 +23,9 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
 
 <body>
     @include('nepali.layouts.navbar', ['nav' => $nav])
+    <div class="container">
+        @include('nepali.layouts._message')
+    </div>
     @yield('content')
 
     <footer>
@@ -67,7 +70,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                     <ul class="footerNav">
                         @foreach ($nav as $item)
                             <li class="">
-                            <a href="{{ route('nepali.category', $item->id) }}">{{ $item->name }}<span
+                            <a href="
+                                {{ route('nepali.category', $item->id) }}">{{ $item->name }}<span
                                     class="sr-only">(current)</span></a>
                             </li>
                         @endforeach

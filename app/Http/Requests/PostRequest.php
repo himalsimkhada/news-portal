@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
     {
         $this->merge([
             'code' => $this->post->code ?? rand(100000, 999999),
-            'slug' => SlugService::createSlug(Post::class, 'slug', $this->title)
+            'slug' => SlugService::createSlug(Post::class, 'slug', $this->title),
         ]);
     }
 

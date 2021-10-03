@@ -54,7 +54,7 @@
                                 <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                     class="img-fluid sideNewsImage">
                                 <h6 class="sideNewsTopic"><a
-                                        href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                                 </h6>
                             </div>
                         @endif
@@ -100,7 +100,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a
-                                    href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 30) }}</a>
+                                    href="{{ route('nepali.details', $news->slug) }}">{{$news->title }}</a>
                             </h6>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                         <div class="sideNews d-flex white">
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                                 class="img-fluid sideNewsImage">
-                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 20) }}</a></h6>
+                            <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h6>
                         </div>
                     </div>
                     @if ($key == 14)
@@ -171,7 +171,7 @@
                                 <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                     class="img-fluid sideNewsImage">
                                 <h6 class="sideNewsTopic"><a
-                                        href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                        href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                                 </h6>
                             </div>
                         @endif
@@ -203,7 +203,7 @@
                                     class="img-fluid innerCardMainImage">
                                 <h2 class="innerCardMainHeading"><a
                                         href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a></h2>
-                                <p class="newsText">{{ substr($news->title, 0, 20) }}</p>
+                                <p class="newsText">{{ $news->title }}</p>
                             </div>
                         </div>
                     @endif
@@ -214,7 +214,7 @@
                             <div class="sideNews d-flex white marZero">
                                 <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                     class="img-fluid sideNewsImage">
-                                <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                <h6 class="sideNewsTopic"><a href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                                 </h6>
                             </div>
                         @endif
@@ -251,7 +251,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a
-                                    href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                    href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                             </h6>
                         </div>
                         @if ($key == 2)
@@ -287,7 +287,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a
-                                    href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                    href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                             </h6>
                         </div>
                         @if ($key == 5)
@@ -323,7 +323,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="side1"
                                 class="img-fluid sideNewsImage">
                             <h6 class="sideNewsTopic"><a
-                                    href="{{ route('nepali.details', $news->slug) }}">{{ substr($news->title, 0, 15) }}</a>
+                                    href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                             </h6>
                         </div>
                         @if ($key == 2)
