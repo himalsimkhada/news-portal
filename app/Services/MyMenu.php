@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Admin\SiteSetting;
 use Pratiksh\Adminetic\Traits\SidebarHelper;
 use Pratiksh\Adminetic\Contracts\SidebarInterface;
 
@@ -118,6 +119,11 @@ class MyMenu implements SidebarInterface {
                 'type' => 'link',
                 'name' => 'Approval Requests',
                 'link' => route('requests.index'),
+            ],
+            [
+                'type' => 'link',
+                'name' => 'Site Settings',
+                'link' => route('site-setting.index'),
             ],
         ];
     }
