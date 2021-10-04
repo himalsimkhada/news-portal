@@ -111,14 +111,14 @@ class MyMenu implements SidebarInterface {
             ],
             [
                 'type' => 'link',
-                'name' => 'Github',
-                'icon' => 'fab fa-github',
-                'link' => 'https://github.com/pratiksh404/admineticl',
+                'name' => 'Approval Requests',
+                'link' => route('requests.index'),
             ],
             [
                 'type' => 'link',
-                'name' => 'Approval Requests',
-                'link' => route('requests.index'),
+                'name' => 'Github',
+                'icon' => 'fab fa-github',
+                'link' => 'https://github.com/pratiksh404/admineticl',
             ],
         ];
     }
