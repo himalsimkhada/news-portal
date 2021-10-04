@@ -120,11 +120,6 @@ class MyMenu implements SidebarInterface {
                 'name' => 'Approval Requests',
                 'link' => route('requests.index'),
             ],
-            [
-                'type' => 'link',
-                'name' => 'Site Settings',
-                'link' => route('site-setting.index'),
-            ],
         ];
     }
 }
