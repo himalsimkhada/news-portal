@@ -73,7 +73,7 @@
                 <a href=""><img src="img/r3.gif" alt="ad" class="img-fluid manyAdsB"></a>
             </div>
             <div class="col-md-6 text-center">
-                <iframe src="{{ setting('home_page_video_link') }}" frameborder="0"
+                <iframe src="{{ setting('homepage_video_link') }}" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
