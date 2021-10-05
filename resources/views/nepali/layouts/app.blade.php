@@ -1,5 +1,6 @@
 @php
 $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
+
 @endphp
 
 <!doctype html>
