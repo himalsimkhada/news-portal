@@ -17,9 +17,13 @@
         @endif
         @endforeach
 
+        @php
+            $image = App\Models\Admin\Poster::where('id', 3)->first();
+            // dd($image->image);
+        @endphp
         <div class="ad2">
             <a href="#">
-                <img src="img/kumari.gif" alt="ad" class="img-fluid">
+                <img src="{{ asset('storage/' . $image->image) ?? 'img/kumari.gif' }}" alt="ad" class="img-fluid">
             </a>
         </div>
 

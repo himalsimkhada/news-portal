@@ -20,7 +20,6 @@ class PosterRequest extends FormRequest {
      * @return array
      */
     public function rules() {
-        $id = $this->poster->id ?? '';
         return [
             'name' => 'nullable|max:255',
             'image' => 'file|image|max:3000',
