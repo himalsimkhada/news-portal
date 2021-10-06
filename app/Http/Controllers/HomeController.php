@@ -77,7 +77,7 @@ class HomeController extends Controller {
         // dd($relatedPost->isEmpty());
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
         $randomRow = Post::inRandomOrder()->get();
-        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow'));
+        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow', 'slug'));
     }
 
     public function categoryPost($slug) {
