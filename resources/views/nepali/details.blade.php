@@ -1,4 +1,4 @@
-@extends('nepali.layouts.app')
+@extends('nepali.layouts.app',['meta_title' => $post->meta_title ?? $post->title, 'meta_description' => $post->meta_description ?? $post->body, 'meta_image' => $post->image ?? 'NULL'])
 
 @section('title', $post->title)
 

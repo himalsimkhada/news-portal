@@ -26,18 +26,18 @@
                     </div>
                     <div class="col-md-4">
                         <ul class="socialButtons">
-                            <li><a href="#"><img src="{{ asset('img/home-facebook.png') }}" alt="facebook"
+                            <li><a href="{{ setting('facebook_page') }}"><img src="{{ asset('img/home-facebook.png') }}" alt="facebook"
                                         class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/home-insta1.png') }}" alt="instagram"
+                            <li><a href="{{ setting('instagram_page') }}"><img src="{{ asset('img/home-insta1.png') }}" alt="instagram"
                                         class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/home-twitter1.png') }}" alt="twitter"
+                            <li><a href="{{ setting('twitter_page') }}"><img src="{{ asset('img/home-twitter1.png') }}" alt="twitter"
                                         class="img-fluid"></a>
                             </li>
-                            <li><a href="#"><img src="{{ asset('img/viber.png') }}" alt="viber"
+                            <li><a href="{{ setting('viber_page') }}"><img src="{{ asset('img/viber.png') }}" alt="viber"
                                         class="img-fluid"></a></li>
-                            <li><a href="#"><img src="{{ asset('img/home-youtube1.png') }}" alt="youtube"
+                            <li><a href="{{ setting('youtube_page') }}"><img src="{{ asset('img/home-youtube1.png') }}" alt="youtube"
                                         class="img-fluid"></a>
                             </li>
                             <li>
