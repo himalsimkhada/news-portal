@@ -1,3 +1,9 @@
+@php
+$post = App\Models\Admin\Post::where('id', 26)->first();
+@endphp
+
+{{ dd($post->views_count) }}
+
 @extends('nepali.layouts.app')
 
 @section('title', 'गृह पृष्ठ')
@@ -23,7 +29,8 @@
         @endphp
         <div class="ad2">
             <a href="#">
-                <img src="{{ isset($image) ? asset('storage/' . $image->image) : 'img/kumari.gif' }}" alt="ad" class="img-fluid">
+                <img src="{{ isset($image) ? asset('storage/' . $image->image) : 'img/kumari.gif' }}" alt="ad"
+                    class="img-fluid">
             </a>
         </div>
 
@@ -77,7 +84,8 @@
                 <a href=""><img src="img/r3.gif" alt="ad" class="img-fluid manyAdsB"></a>
             </div>
             <div class="col-md-6 text-center">
-                <iframe src="{{ setting('homepage_video_link') ?? 'https://www.youtube.com/embed/hXA5Q89diMY' }}" frameborder="0"
+                <iframe src="{{ setting('homepage_video_link') ?? 'https://www.youtube.com/embed/hXA5Q89diMY' }}"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
