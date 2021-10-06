@@ -80,11 +80,10 @@ class HomeController extends Controller {
         return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow'));
     }
 
-    public function categoryPost($id) {
-        $category = Post::with('category')->where('category_id', $id);
-        $posts = $category->paginate(12);
-        $name = $category->first()->category->name;
-        return view('nepali.category', compact('posts', 'name'));
+    public function categoryPost($slug) {
+        $category = Category::where('slug', $slug)->first();
+        $posts = $category->posts()->paginate(12);
+        return view('nepali.category', compact('posts'));
     }
 
     public function relatedPost($slug) {

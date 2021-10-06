@@ -71,7 +71,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
                         @foreach ($nav as $item)
                             <li class="">
                             <a href="
-                                {{ route('nepali.category', $item->id) }}">{{ $item->name }}<span
+                                {{ route('nepali.category', $item->slug) }}">{{ $item->name }}<span
                                     class="sr-only">(current)</span></a>
                             </li>
                         @endforeach

@@ -67,7 +67,7 @@
                                     class="nav-link">गृहपृष्ठ</a>
                             </li>
                             @forelse ($nav as $items)
-                                <li class="nav-item"><a href="{{ route('nepali.category', $items->id) }}"
+                                <li class="nav-item"><a href="{{ route('nepali.category', $items->slug) }}"
                                         class="nav-link">{{ $items->name }}</a>
                                 </li>
                             @empty
