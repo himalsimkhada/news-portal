@@ -23,7 +23,7 @@
         @endphp
         <div class="ad2">
             <a href="#">
-                <img src="{{ asset('storage/' . $image->image) ?? 'img/kumari.gif' }}" alt="ad" class="img-fluid">
+                <img src="{{ isset($image) ? asset('storage/' . $image->image) : 'img/kumari.gif' }}" alt="ad" class="img-fluid">
             </a>
         </div>
 
