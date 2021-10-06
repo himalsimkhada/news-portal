@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class PosterRequest extends FormRequest {
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize() {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules() {
+        $id = $this->poster->id ?? '';
+        return [
+            'name' => 'nullable|max:255',
+            'image' => 'file|image|max:3000',
+            'type' => 'required',
+            'priority' => 'required',
+        ];
+    }
+}
