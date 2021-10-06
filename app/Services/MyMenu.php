@@ -51,6 +51,23 @@ class MyMenu implements SidebarInterface {
                 'children' => $this->indexCreateChildren('category', App\Models\Admin\Category::class)
             ],
             [
+                'type' => 'menu',
+                'name' => 'Poster',
+                'icon' => 'fa fa-code-fork',
+                'is_active' => request()->routeIs('poster*') ? 'active' : '',
+                'conditions' => [
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('view-any', App\Models\Admin\Poster::class),
+                    ],
+                    [
+                        'type' => 'or',
+                        'condition' => auth()->user()->can('create', App\Models\Admin\Poster::class),
+                    ],
+                ],
+                'children' => $this->indexCreateChildren('poster', App\Models\Admin\Poster::class)
+            ],
+            [
                 'type' => 'breaker',
                 'name' => 'DEV TOOLS',
                 'description' => 'Development Environment',
