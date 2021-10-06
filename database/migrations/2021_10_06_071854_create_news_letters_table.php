@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostersTable extends Migration
+class CreateNewsLettersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePostersTable extends Migration
      */
     public function up()
     {
-        Schema::create('posters', function (Blueprint $table) {
+        Schema::create('news_letters', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('image');
-            $table->string('type');
-            $table->integer('priority');
+            $table->string('email');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePostersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posters');
+        Schema::dropIfExists('news_letters');
     }
 }

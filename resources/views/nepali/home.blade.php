@@ -1,9 +1,3 @@
-@php
-$post = App\Models\Admin\Post::where('id', 26)->first();
-@endphp
-
-{{ dd($post->views_count) }}
-
 @extends('nepali.layouts.app')
 
 @section('title', 'गृह पृष्ठ')
@@ -25,7 +19,6 @@ $post = App\Models\Admin\Post::where('id', 26)->first();
 
         @php
             $image = App\Models\Admin\Poster::where('id', 3)->first();
-            // dd($image->image);
         @endphp
         <div class="ad2">
             <a href="#">

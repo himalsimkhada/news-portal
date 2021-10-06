@@ -37,12 +37,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <label for="priority">Poster Priority</label>
-                                    <select class="form-control" name="priority" id="priority">
-                                        <option selected>Choose priority</option>
-                                        <option value="high">High</option>
-                                        <option value="meduim">Medium</option>
-                                        <option value="low">Low</option>
-                                    </select>
+                                    <input type="number" class="form-control" name="priority" id="priority">
                                 </div>
                             </div>
                             <br>

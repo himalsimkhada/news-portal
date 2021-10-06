@@ -1,4 +1,5 @@
-@extends('nepali.layouts.app',['meta_title' => $post->meta_title ?? $post->title, 'meta_description' => $post->meta_description ?? $post->body, 'meta_image' => $post->image ?? 'NULL'])
+@extends('nepali.layouts.app',['meta_title' => $post->meta_title ?? $post->title, 'meta_description' =>
+$post->meta_description ?? $post->body, 'meta_image' => $post->image ?? 'NULL'])
 
 @section('title', $post->title)
 
@@ -92,8 +93,8 @@
             <div id="disqus_thread"></div>
             <script>
                 /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
                 /*
                 var disqus_config = function () {
                 this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
@@ -101,13 +102,15 @@
                 };
                 */
                 (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://newportal-1.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
+                    var d = document,
+                        s = d.createElement('script');
+                    s.src = 'https://newportal-1.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
                 })();
             </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+                    Disqus.</a></noscript>
         </div>
         <!--container ends-->
 
@@ -175,8 +178,8 @@
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                                                                        </a> -->
+                                                                                                <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                                                            </a> -->
                 </div>
                 <!--left side ends-->
 
