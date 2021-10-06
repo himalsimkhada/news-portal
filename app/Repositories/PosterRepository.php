@@ -55,17 +55,11 @@ class PosterRepository implements PosterRepositoryInterface {
         if (request()->has('image')) {
 
             $image = request()->file('image');
-            $extension = $image->getClientOriginalExtension();
             $name = $image->getClientOriginalName();
             $poster->update([
                 'image' => 'poster/files/' . $name,
             ]);
             $image->move('storage/poster/files/', $name);
-            // $poster->update([
-            //     'image' => request()->image->store('poster/files/' . validImageFolder($poster->name), 'public')
-            // ]);
-            // $image = Image::make(request()->file('image')->getRealPath());
-            // $image->save(public_path('storage/' . $poster->image));
         }
     }
 }
