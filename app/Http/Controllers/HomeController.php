@@ -77,13 +77,15 @@ class HomeController extends Controller {
         // dd($relatedPost->isEmpty());
         $nepaliDate = NepaliDate::create($post->created_at)->toFormattedNepaliDate();
         $randomRow = Post::inRandomOrder()->get();
-        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow'));
+        return view('nepali.details', compact('post', 'nepaliDate', 'relatedPost', 'most_viewed_post', 'least_viewed_post', 'randomRow', 'slug'));
     }
 
     public function categoryPost($slug) {
-        $category = Category::where('slug', $slug)->first();
+        // $category = Post::with('category')->where('category_id', $id);
+        $category = Category::with('posts')->where('slug', $slug)->first();
         $posts = $category->posts()->paginate(12);
-        return view('nepali.category', compact('posts'));
+        $name = $category->name;
+        return view('nepali.category', compact('posts', 'name'));
     }
 
     public function relatedPost($slug) {

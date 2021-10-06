@@ -16,5 +16,6 @@ class ModulePermissionSeeder extends Seeder
     {
         Artisan::call('make:permission Post --all');
         Artisan::call('make:permission Category --all');
+        Artisan::call('make:permission Poster --all');
     }
 }

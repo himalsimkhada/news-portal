@@ -1,5 +1,6 @@
 @php
 $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
+
 @endphp
 
 <!doctype html>
@@ -15,8 +16,14 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="icon" href="{{ asset('storage/' . setting('site_fav_icon')) ?? asset('img\vrlogo.jpg') }}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('storage/' . setting('site_fav_icon')) ?? asset('img\vrlogo.jpg') }}"
+        type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <meta property="og:title" content="{{ $meta_title ?? setting('site_name', 'News Portal') }}" />
+    <meta property="og:description" content="{{ $meta_description ?? 'Hello, this is a news portal.' }}" />
+    <meta property="og:image"
+        content="{{ isset($meta_image) ? URL(asset('storage/' . $meta_image)) : asset('img\vrlogo.jpg') }}" />
 
     <title>{{ setting('site_name') ?? 'न्यूज़ पोर्टल' }} - @yield('title')</title>
 </head>
@@ -33,7 +40,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
             <div class="row text-left">
                 <div class="col-md-4">
                     <a href="indexsec.php">
-                        <img src="{{ asset('storage/' . setting('site_logo')) ?? asset('img/logo.png') }}" alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
+                        <img src="{{ asset('storage/' . setting('site_logo')) ?? asset('img/logo.png') }}"
+                            alt="footerlogo" class="img-fluid footLogo mt-5 mb-3">
                     </a>
                     <div class="footerContact">
                         <h5 class="footerPageName pt-3 pb-4">न्यूज़ पोर्टल</h5>
@@ -90,7 +98,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
             <hr class="footerLine">
             <div class="row">
                 <div class="col-md-8 text-left copy">
-                    <p>&#169; न्यूज़ पोर्टल,2020 &#174; All Rights Reserved. <a
+                    <p>&#169; न्यूज़ पोर्टल,{{ date('Y') }} &#174; All Rights Reserved. <a
                             href="{{ route('nepali.view.contact-us') }}">&nbsp;
                             &nbsp;सम्पर्क</a>&nbsp;|&nbsp;<a href="{{ route('nepali.about-us') }}">हाम्रो
                             बारे</a>&nbsp; |&nbsp;<a href="{{ route('nepali.calender') }}">पात्रो</a>&nbsp;|&nbsp; <a
