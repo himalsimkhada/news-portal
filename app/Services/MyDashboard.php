@@ -29,13 +29,10 @@ class MyDashboard implements DashboardInterface
             ->get()
             ->count();
         $todayViews = DB::table('views')
-            ->where('viewed_at', Carbon::today())
+            ->whereDate('viewed_at', Carbon::today())
             ->get()
             ->count();
-        // dd($todayViews);
-        $post = Post::with('author', 'tags')->where('id', 1)->first();
-        views($post)->record();
         $view = view()->exists('admin.dashboard.index') ? 'admin.dashboard.index' : 'adminetic::admin.dashboard.index';
-        return view($view);
+        return view($view, compact('totalViews', 'currentYearViews', 'currentMonthViews', 'currentWeekViews', 'todayViews'));
     }
 }
