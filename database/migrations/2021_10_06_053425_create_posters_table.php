@@ -18,7 +18,7 @@ class CreatePostersTable extends Migration
             $table->string('name')->nullable();
             $table->string('image');
             $table->string('type');
-            $table->string('priority');
+            $table->integer('priority');
             $table->timestamps();
         });
     }

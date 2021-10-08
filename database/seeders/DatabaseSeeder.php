@@ -59,28 +59,28 @@ class DatabaseSeeder extends Seeder {
             'string_value' => 'News Portal',
             'setting_custom' => '"{\r\n    \"class\": \"instagram_page\",\r\n    \"id\": \"instagram_page\",\r\n    \"value\": \"Adminetic\",\r\n    \"placeholder\": \"Site Title Here!!\"\r\n}"',
             'setting_type' => 1,
-            'setting_group' => 'homepage_setting',
+            'setting_group' => 'social_links',
         ]);
         Setting::create([
             'setting_name' => 'twitter_page',
             'string_value' => 'News Portal',
             'setting_custom' => '"{\r\n    \"class\": \"twitter_page\",\r\n    \"id\": \"twitter_page\",\r\n    \"value\": \"Adminetic\",\r\n    \"placeholder\": \"Site Title Here!!\"\r\n}"',
             'setting_type' => 1,
-            'setting_group' => 'homepage_setting',
+            'setting_group' => 'social_links',
         ]);
         Setting::create([
             'setting_name' => 'viber_page',
             'string_value' => 'News Portal',
             'setting_custom' => '"{\r\n    \"class\": \"viber_page\",\r\n    \"id\": \"viber_page\",\r\n    \"value\": \"Adminetic\",\r\n    \"placeholder\": \"Site Title Here!!\"\r\n}"',
             'setting_type' => 1,
-            'setting_group' => 'homepage_setting',
+            'setting_group' => 'social_links',
         ]);
         Setting::create([
             'setting_name' => 'youtube_page',
             'string_value' => 'News Portal',
             'setting_custom' => '"{\r\n    \"class\": \"youtube_page\",\r\n    \"id\": \"youtube_page\",\r\n    \"value\": \"Adminetic\",\r\n    \"placeholder\": \"Site Title Here!!\"\r\n}"',
             'setting_type' => 1,
-            'setting_group' => 'homepage_setting',
+            'setting_group' => 'social_links',
         ]);
 
 

@@ -24,7 +24,7 @@ class PosterRequest extends FormRequest {
             'name' => 'nullable|max:255',
             'image' => 'file|image|max:3000',
             'type' => 'required',
-            'priority' => 'required',
+            'priority' => 'required|numeric',
         ];
     }
 }
