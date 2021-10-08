@@ -23,7 +23,7 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
     <meta property="og:title" content="{{ $meta_title ?? setting('site_name', 'News Portal') }}" />
     <meta property="og:description" content="{{ $meta_description ?? 'Hello, this is a news portal.' }}" />
     <meta property="og:image"
-        content="{{ isset($meta_image) ? URL(asset('storage/' . $meta_image)) : asset('img\vrlogo.jpg') }}" />
+        content="{{ isset($meta_image) ? URL(asset('storage/' . $meta_image)) : asset('img\logo.png') }}" />
 
     <title>{{ setting('site_name') ?? 'न्यूज़ पोर्टल' }} - @yield('title')</title>
 </head>
