@@ -113,7 +113,39 @@ return [
     'migrate_with_dummy' => false,
 
     // ASSETS DEPENDENCIES INJECTION
-    'assets' => [],
+    'assets' => [
+        [
+            'name' => 'Chartist',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'active' => true,
+                    'location' => 'adminetic/assets/css/vendors/chartist.css',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/chart/chartist/chartist.js',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/chart/chartist/chartist-plugin-tooltip.js',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/chart/chartist/chartist-custom.js',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/tooltip-init.js',
+                ],
+            ],
+        ],
+    ],
 
     // Plugin Adapters
     'adapters' => [],

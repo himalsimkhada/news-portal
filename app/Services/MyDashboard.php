@@ -33,6 +33,6 @@ class MyDashboard implements DashboardInterface
             ->get()
             ->count();
         $view = view()->exists('admin.dashboard.index') ? 'admin.dashboard.index' : 'adminetic::admin.dashboard.index';
-        return view($view, compact('totalViews', 'currentYearViews', 'currentMonthViews'. 'currentWeekViews', 'todayViews'));
+        return view($view, compact('totalViews', 'currentYearViews', 'currentMonthViews', 'currentWeekViews', 'todayViews'));
     }
 }
