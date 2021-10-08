@@ -1,9 +1,3 @@
-@php
-$post = App\Models\Admin\Post::where('id', 26)->first();
-@endphp
-
-{{ dd($post->views_count) }}
-
 @extends('nepali.layouts.app')
 
 @section('title', 'गृह पृष्ठ')
