@@ -32,7 +32,7 @@ class MyDashboard implements DashboardInterface
             ->where('viewed_at', Carbon::today())
             ->get()
             ->count();
-        dd($todayViews);
+        // dd($todayViews);
         $post = Post::with('author', 'tags')->where('id', 1)->first();
         views($post)->record();
         $view = view()->exists('admin.dashboard.index') ? 'admin.dashboard.index' : 'adminetic::admin.dashboard.index';
