@@ -136,11 +136,6 @@ return [
                 [
                     'type' => 'js',
                     'active' => true,
-                    'location' => 'adminetic/assets/js/chart/chartist/chartist-custom.js',
-                ],
-                [
-                    'type' => 'js',
-                    'active' => true,
                     'location' => 'adminetic/assets/js/tooltip-init.js',
                 ],
             ],

@@ -177,8 +177,8 @@ $post->meta_description ?? $post->body, 'meta_image' => $post->image ?? 'NULL'])
                     </div>
                     <!--news part of left ends-->
                     <!-- <a href="#">
-                                                                                                    <img src="img/r7.gif" alt="ad" class="img-fluid">
-                                                                                                </a> -->
+                                                                                                            <img src="img/r7.gif" alt="ad" class="img-fluid">
+                                                                                                        </a> -->
                 </div>
                 <!--left side ends-->
 
