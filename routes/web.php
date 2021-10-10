@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PosterController;
 use App\Http\Controllers\Admin\ReorderController;
+use App\Http\Controllers\Admin\ChartDataController;
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\HomeController;
 use App\Models\Admin\Poster;

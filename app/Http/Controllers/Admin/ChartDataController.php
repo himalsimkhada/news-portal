@@ -11,7 +11,7 @@ class ChartDataController extends Controller
     public function pieChart(){
         $year = date('Y');
         $viewsArr = [];
-        for($i=1; $i<=13; $i++){
+        for($i=1; $i<=12; $i++){
             $viewsArr[] = DB::table('views')
             ->whereMonth('viewed_at', $i)
             ->whereYear('viewed_at', $year)

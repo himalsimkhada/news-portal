@@ -34,17 +34,4 @@ class MyDashboard implements DashboardInterface
         $view = view()->exists('admin.dashboard.index') ? 'admin.dashboard.index' : 'adminetic::admin.dashboard.index';
         return view($view, compact('totalViews', 'currentYearViews', 'currentMonthViews', 'currentWeekViews', 'todayViews'));
     }
-
-    public function pieChart(){
-        $year = date('Y');
-        $viewArr = [];
-        for($i=1; $i<=13; $i++){
-            $viewArr[] = DB::table('views')
-            ->whereMonth('viewed_at', $i)
-            ->whereYear('viewed_at', $year)
-            ->get()
-            ->count();
-        }
-        return reponse()->json($viewArr);
-    }
 }

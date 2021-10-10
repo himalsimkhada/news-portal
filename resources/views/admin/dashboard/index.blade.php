@@ -96,91 +96,20 @@
                 <div class="col-sm-12 col-xl-6 box-col-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Basic Area Chart </h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="basic-apex"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6 box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Area Spaline Chart </h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="area-spaline"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6 box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Bar chart</h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="basic-bar"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-12 box-col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Column Chart </h5>
+                            <h5>Current Year Monthly View</h5>
                         </div>
                         <div class="card-body">
                             <div id="column-chart"></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-xl-6 box-col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>
-                                3d Bubble Chart </h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-bubble"></div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-sm-12 col-xl-6 box-col-6">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Stepline Chart </h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="stepline"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-12 box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Column Chart</h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="annotationchart"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6 box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Pie Chart </h5>
+                            <h5>Current Year Monthly View</h5>
                         </div>
                         <div class="card-body apex-chart">
                             <div id="piechart"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-xl-6 box-col-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Donut Chart</h5>
-                        </div>
-                        <div class="card-body apex-chart">
-                            <div id="donutchart"></div>
                         </div>
                     </div>
                 </div>
@@ -189,12 +118,20 @@
         <!-- Container-fluid Ends-->
     </div>
     <!-- Container-fluid Ends-->
-    <script>
-        console.log('asdfasdfasdf');
-        console.log('{{ route('pie-chart') }}');
-    </script>
 @endsection
 
 @section('custom_js')
+    <script>
+        var chartData;
+        $.ajax({
+            url: '{{ route("pie-chart") }}',
+            dataType: 'json',
+            async: false,
+            success: function(response) {
+                chartData = response;
+            }
+        });
+        console.log(chartData);
+    </script>
     @include('admin.layouts.modules.dashboard.scripts')
 @endsection
