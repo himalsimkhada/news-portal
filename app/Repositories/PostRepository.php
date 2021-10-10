@@ -41,7 +41,7 @@ class PostRepository implements PostRepositoryInterface
 
     // Post Show
     public function showPost(Post $post)
-    {
+    {   
         return compact('post');
     }
 
