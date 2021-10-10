@@ -64,7 +64,7 @@
                                                     <h4 class="mb-0 counter"><a id="color" href="{{ route('nepali.details', $post->slug)}}#disqus_thread" class="text-white">{{ $post->title }}</a></h4><i class="icon-bg"
                                                         data-feather="message-circle"></i>
                                                         <script>
-                                                            
+                                                            console.log($('#color').html());
                                                         </script>
                                                 </div>
                                             </div>
