@@ -59,9 +59,13 @@
                                                         data-feather="message-circle"></i></div>
                                                         
                                                 <div class="media-body"><span class="m-0">Total
-                                                        Comments</span>
-                                                    <h4 class="mb-0 counter"></h4><i class="icon-bg"
+                                                        Comments </span>
+                                                        
+                                                    <h4 class="mb-0 counter"><a id="color" href="{{ route('nepali.details', $post->slug)}}#disqus_thread" class="text-white">{{ $post->title }}</a></h4><i class="icon-bg"
                                                         data-feather="message-circle"></i>
+                                                        <script>
+                                                            
+                                                        </script>
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +78,7 @@
             </div>
         </x-slot>
     </x-adminetic-show-page>
-    <script id="dsq-count-scr" src="//disqus.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//newportal-1.disqus.com/count.js" async></script>
 
 
 @endsection
