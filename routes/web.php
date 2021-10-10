@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\PosterController;
 use App\Http\Controllers\Admin\ReorderController;
-use App\Http\Controllers\Admin\ChartDataController;
+use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\HomeController;
 use App\Models\Admin\Poster;
 use Illuminate\Support\Facades\Route;
@@ -61,5 +61,8 @@ Route::group(['prefix' => config('adminetic.prefix', 'admin'), 'middleware' => c
     Route::get('/portal/requests', [ApprovalRequests::class, 'index'])->name('requests.index');
     Route::get('/portal/request/accept/{id}', [ApprovalRequests::class, 'update'])->name('requests.update');
 
-    Route::get('/pie-chart', [ChartDataController::class, 'pieChart'])->name('pie-cart');
+    Route::get('/site-settings/index', [SiteSettingController::class, 'index'])->name('site-setting.index');
+    Route::post('/site-settings/update', [SiteSettingController::class, 'update'])->name('site-setting.update');
+
+    Route::get('/pie-chart', [ChartDataController::class, 'pieChart'])->name('pie-chart');  
 });

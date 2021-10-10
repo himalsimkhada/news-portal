@@ -189,6 +189,10 @@
         <!-- Container-fluid Ends-->
     </div>
     <!-- Container-fluid Ends-->
+    <script>
+        console.log('asdfasdfasdf');
+        console.log('{{ route('pie-chart') }}');
+    </script>
 @endsection
 
 @section('custom_js')

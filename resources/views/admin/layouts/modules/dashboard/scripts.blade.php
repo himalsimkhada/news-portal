@@ -2249,8 +2249,6 @@ var chart7 = new ApexCharts(
 chart7.render();
 
 // pie chart
-
-
 var options8 = {
     chart: {
         width: 380,

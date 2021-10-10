@@ -18,6 +18,6 @@ class ChartDataController extends Controller
             ->get()
             ->count();
         }
-        return reponse()->json($viewsArr);
+        return response()->json($viewsArr);
     }
 }
