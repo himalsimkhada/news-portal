@@ -9,6 +9,7 @@
             <div class="white gapping">
                 <h1 class="mainNewsHeading"><a href="{{ route('nepali.details', $news->slug) }}">{{ $news->title }}</a>
                 </h1>
+                <a href="{{ route('nepali.details', $news->slug) }}#disqus_thread">{{ $news->title }}</a>
                 <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}"
                     class="img-fluid mainNewsImage">
             </div>
