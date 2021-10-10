@@ -115,23 +115,18 @@ return [
     // ASSETS DEPENDENCIES INJECTION
     'assets' => [
         [
-            'name' => 'Chartist',
+            'name' => 'Apex-Chart',
             'active' => true,
             'files' => [
                 [
-                    'type' => 'css',
+                    'type' => 'js',
                     'active' => true,
-                    'location' => 'adminetic/assets/css/vendors/chartist.css',
+                    'location' => 'adminetic/assets/js/chart/apex-chart/apex-chart.js',
                 ],
                 [
                     'type' => 'js',
                     'active' => true,
-                    'location' => 'adminetic/assets/js/chart/chartist/chartist.js',
-                ],
-                [
-                    'type' => 'js',
-                    'active' => true,
-                    'location' => 'adminetic/assets/js/chart/chartist/chartist-plugin-tooltip.js',
+                    'location' => 'adminetic/assets/js/chart/apex-chart/stock-prices.js',
                 ],
                 [
                     'type' => 'js',
