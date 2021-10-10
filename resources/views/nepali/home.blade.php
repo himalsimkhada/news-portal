@@ -122,7 +122,7 @@
             <!--jibansaili-->
             <div class="white newsTypeHeading d-flex justify-content-between">
                 <h3>
-                    <a href="#">जीवनशैली</a>
+                    <a href="">जीवनशैली</a>
                 </h3>
                 <h3 class="pr-3">
                     <a href="#">सबै <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
