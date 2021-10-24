@@ -133,6 +133,8 @@ $nav = \App\Models\Admin\Category::orderBy('position', 'ASC')->get();
 
     @yield('js')
 
+    <script id="dsq-count-scr" src="//newportal-1.disqus.com/count.js" async></script>
+
 </body>
 
 </html>

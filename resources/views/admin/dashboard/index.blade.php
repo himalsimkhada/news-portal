@@ -90,32 +90,48 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-6 col-md-12 col-sm-12 box-col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Bi-polar Line chart with area only</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="ct-5 flot-chart-container"></div>
+        <!-- Container-fluid starts-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-xl-6 box-col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Current Year Monthly View</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="column-chart"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6 col-md-12 col-sm-12 box-col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Line chart with area</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="ct-4 flot-chart-container"></div>
+                <div class="col-sm-12 col-xl-6 box-col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Current Year Monthly View</h5>
+                        </div>
+                        <div class="card-body apex-chart">
+                            <div id="piechart"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Container-fluid Ends-->
     </div>
     <!-- Container-fluid Ends-->
 @endsection
 
 @section('custom_js')
+    <script>
+        var chartData;
+        $.ajax({
+            url: '{{ route("pie-chart") }}',
+            dataType: 'json',
+            async: false,
+            success: function(response) {
+                chartData = response;
+            }
+        });
+        console.log(chartData);
+    </script>
     @include('admin.layouts.modules.dashboard.scripts')
 @endsection

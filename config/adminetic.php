@@ -113,7 +113,29 @@ return [
     'migrate_with_dummy' => false,
 
     // ASSETS DEPENDENCIES INJECTION
-    'assets' => [],
+    'assets' => [
+        [
+            'name' => 'Apex-Chart',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/chart/apex-chart/apex-chart.js',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/chart/apex-chart/stock-prices.js',
+                ],
+                [
+                    'type' => 'js',
+                    'active' => true,
+                    'location' => 'adminetic/assets/js/tooltip-init.js',
+                ],
+            ],
+        ],
+    ],
 
     // Plugin Adapters
     'adapters' => [],

@@ -11,10 +11,9 @@ class MyDashboard implements DashboardInterface
 {
     public function view()
     {
-        $post = Post::all();
         $totalViews = DB::table('views')->get()->count();
         $currentYearViews = DB::table('views')
-            ->whereYear('viewed_at', date('Y'))
+        ->whereYear('viewed_at', date('Y'))
             ->get()
             ->count();
         $currentMonthViews = DB::table('views')
