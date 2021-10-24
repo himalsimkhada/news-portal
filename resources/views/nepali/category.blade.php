@@ -6,7 +6,6 @@
 
     <div class="container">
         <div class="redBg">
-
             <div class="white newsTypeHeading d-flex justify-content-between">
                 <h3>
                     <a href="antarastriya.php">{{ $name }}</a>
@@ -14,11 +13,11 @@
             </div>
 
             <div class="row marSide">
-                @foreach ($posts as $post )
-                <div class="col-md-3 col-sm-4 categoryCard">
-                    <img src="{{ asset('storage/' .$post->image ) }}" alt="news" class="img-fluid">
-                    <h5><a href="{{ route('nepali.details', $post->slug) }}">{{ $post->title }}</a></h5>
-                </div>
+                @foreach ($posts as $post)
+                    <div class="col-md-3 col-sm-4 categoryCard">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="news" class="img-fluid">
+                        <h5><a href="{{ route('nepali.details', $post->slug) }}">{{ $post->title }}</a></h5>
+                    </div>
                 @endforeach
 
             </div>
